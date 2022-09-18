@@ -6,6 +6,8 @@ felicidade = 0
 biberaochao = 0
 biberao = 0
 fim_bebe = 0
+fim_crianca = 0
+fim_adolecente = 0
 
 
 def pontuacao():
@@ -63,6 +65,7 @@ def vida_crianca():
     global resto_bebe
     global resto_lampada
     global resto_pintura
+    global fim_crianca
     bebe = rd.randint(0, 4)
     lampada = rd.randint(0, 14)
     pintura = rd.randint(0, 4)
@@ -98,19 +101,40 @@ def vida_crianca():
         print(f'lampada {lampada}/9')
     elif pintura < 3:
         print(f'pintura {pintura}/3')
-
+    fim_crianca = 1
     pontuacao()  # So para a pessoa saber
 
 
 def vida_adolecente():
-    print()  # TEMP
+    global opcao_2
+    global profisao
+    global opcao_3
+    global chance_2
+    global resto_amizade_1
+    global fim_adolecente  # Ficar final
+    opcao_2 = int(
+        input('1 - Futebol \n2 - Musica \n3 - Pintura\n4 - Tenho que ver\n --> '))
+    profisao = opcao_2
+    opcao_3 = str(input('Tentar fazer uma nova amiga? '))
+    chance_2 = rd.randint(0, 100)
+    if opcao_3 == "sim":
+        if chance_2 > 50:
+            print('Voce fez uma nova amiga :)')
+            felicidade += 2  # TEMP
+            if felicidade > 15:
+                resto_amizade_1 = felicidade - 15
+                felicidade = felicidade - resto_amizade_1
+                pontuacao()
+    elif opcao_3 == "sim":
+        if chance_2 < 50:
+            print('Ela não quer ser sua amiga')
+            felicidade -= 2  # TEMP
+    fim_adolecente = 1
 
 
 comecar = str(input('Bora começar: '))
 if comecar == "sim":
     print('Bora\n')
     vida_bebe()
-    if fim_bebe == 1:
-        vida_crianca()
-    elif fim_bebe == 0:
-        print('Erro Def vida_bebe()')
+    vida_crianca()
+    vida_adolecente()
