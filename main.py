@@ -9,6 +9,7 @@ def vida_bebe():
     global vida
     global felicidade
     global biberao
+    global resto
     vida = 12
     felicidade = 6
     print(f'Vida - {vida}')
@@ -39,11 +40,18 @@ def vida_bebe():
     print('OBS: Neste caso ja que não tem interface e tudo gerado de forma random')
     biberaochao = rd.randint(1, 2)
     biberao = rd.randint(biberaochao, 9)
-    felicidade += biberao
-    felicidade -  biberao #temp
-    print(f'Vida - {vida}')
-    print(f'Felicidade - {felicidade}')
+    felicidade += biberao # biberao = 1
+    if felicidade > 15:
+        resto = felicidade - 15
+        felicidade = felicidade - resto
+        print(f'Vida - {vida}')
+        print(f'Felicidade - {felicidade}')
+    elif felicidade < 15:
+        print(f'Vida - {vida}')
+        print(f'Felicidade - {felicidade}')
 
+def vida_crianca():
+    print('')  #TEMP       
 
 comecar = str(input('Bora começar: '))
 if comecar == "sim":
