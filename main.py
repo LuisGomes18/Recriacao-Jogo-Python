@@ -101,8 +101,10 @@ def vida_crianca():
 
     pontuacao()  # So para a pessoa saber
 
+
 def vida_adolecente():
-    print() # TEMP
+    print()  # TEMP
+
 
 comecar = str(input('Bora começar: '))
 if comecar == "sim":
