@@ -3,5 +3,5 @@
 </h1>
 
 <br>
-# Jogo Rcriado: <br>
+<h2> Jogo Rcriado: <br> </h2>
 A Vida é um Jogo. (Life is a Game)
