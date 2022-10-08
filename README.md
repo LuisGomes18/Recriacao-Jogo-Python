@@ -1,3 +1,7 @@
-# Recria-o-Jogo
+<h1 align="center">
+<br>Recraição Jogo Python
+</h1>
 
-Jogo Rcriado: A Vida é um Jogo. (Life is a Game)
+<br>
+# Jogo Rcriado: <br>
+A Vida é um Jogo. (Life is a Game)
