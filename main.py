@@ -5,15 +5,10 @@ vida = 0
 felicidade = 0
 biberaochao = 0
 biberao = 0
-fim_bebe = 0
-fim_crianca = 0
-fim_adolecente = 0
-
 
 def pontuacao():
     print('\033[93m' + f'\nVida - {vida}')
     print(f'Felicidade - {felicidade}\n' + '\033[0m')
-
 
 def vida_bebe():
     global vida
@@ -55,7 +50,6 @@ def vida_bebe():
         pontuacao()
     fim_bebe = 1
 
-
 def vida_crianca():
     global bebe
     global lampada
@@ -70,18 +64,16 @@ def vida_crianca():
     lampada = rd.randint(0, 14)
     pintura = rd.randint(0, 4)
     chance = rd.randint(0, 100)
+
     # Chance para saber se o brinquedo ira aparecer ou não
     if chance > 50:
         brinquedo = rd.randint(0, 1)
-
     if bebe > 3:
         resto_bebe = bebe - 3
         bebe = bebe - resto_bebe
-
     if lampada > 9:
         resto_lampada = lampada - 9
         lampada = lampada - resto_lampada
-
     if pintura > 3:
         resto_pintura = pintura - 3
         pintura = pintura - resto_pintura
@@ -104,7 +96,6 @@ def vida_crianca():
     fim_crianca = 1
     pontuacao()  # So para a pessoa saber
 
-
 def vida_adolecente():
     global opcao_2
     global profisao
@@ -119,7 +110,7 @@ def vida_adolecente():
     chance_2 = rd.randint(0, 100)
     if opcao_3 == "sim":
         if chance_2 > 50:
-            print('Voce fez uma nova amiga :)')
+            print('Voce fez uma nova amiga : ')
             felicidade += 2  # TEMP
             if felicidade > 15:
                 resto_amizade_1 = felicidade - 15
@@ -129,8 +120,6 @@ def vida_adolecente():
         if chance_2 < 50:
             print('Ela não quer ser sua amiga')
             felicidade -= 2  # TEMP
-    fim_adolecente = 1
-
 
 comecar = str(input('Bora começar: '))
 if comecar == "sim":
