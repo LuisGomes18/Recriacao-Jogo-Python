@@ -3,19 +3,33 @@ import random as rd
 
 vida = 0
 felicidade = 0
+sexopg = 0
 biberaochao = 0
 biberao = 0
+Futebol = 0
+Musica = 0
+Artes = 0
+Medicina = 0
+Literacia = 0
 
 def pontuacao():
     print('\033[93m' + f'\nVida - {vida}')
     print(f'Felicidade - {felicidade}\n' + '\033[0m')
+
+def sexo():
+    global sexo_personagem
+    global sexopg
+    sexo_personagem = str(input('Qual sexo do personagem (Masculino ou Femenino)?  '))
+    if sexo_personagem == "Masculino" or sexo_personagem == "masculino":
+        sexopg = 0
+    if sexo_personagem == "Femenino" or sexo_personagem == "femenino":
+        sexopg = 1    
 
 def vida_bebe():
     global vida
     global felicidade
     global biberao
     global resto
-    global fim_bebe
     vida = 12
     felicidade = 6
     pontuacao()
@@ -48,7 +62,6 @@ def vida_bebe():
         pontuacao()
     elif felicidade < 15:
         pontuacao()
-    fim_bebe = 1
 
 def vida_crianca():
     global bebe
@@ -59,7 +72,6 @@ def vida_crianca():
     global resto_bebe
     global resto_lampada
     global resto_pintura
-    global fim_crianca
     bebe = rd.randint(0, 4)
     lampada = rd.randint(0, 14)
     pintura = rd.randint(0, 4)
@@ -93,25 +105,37 @@ def vida_crianca():
         print(f'lampada {lampada}/9')
     elif pintura < 3:
         print(f'pintura {pintura}/3')
-    fim_crianca = 1
     pontuacao()  # So para a pessoa saber
 
-def vida_adolecente():
+def vida_adolecente_rapaz():
     global opcao_2
+    global Futebol
+    global Musica
+    global Artes
+    global Medicina
+    global Literacia
     global profisao
     global opcao_3
     global chance_2
     global resto_amizade_1
-    global fim_adolecente  # Ficar final
-    opcao_2 = int(
-        input('1 - Futebol \n2 - Musica \n3 - Pintura\n4 - Tenho que ver\n --> '))
+    opcao_2 = int(input('1 - Futebol \n2 - Musica \n3 - Artes\n4 - Medicina\n5 - Literacia\n --> '))
+    if opcao_2 == 1:
+        Futebol = 1
+    elif opcao_2 == 2:
+        Musica = rd.randint(0, 13)
+    elif opcao_2 == 3:
+        Artes = 1
+    elif opcao_2 == 4:
+        Medicina = 1
+    elif opcao_2 == 5:
+        Literacia = 1                     
     profisao = opcao_2
     opcao_3 = str(input('Tentar fazer uma nova amiga? '))
     chance_2 = rd.randint(0, 100)
     if opcao_3 == "sim":
         if chance_2 > 50:
             print('Voce fez uma nova amiga : ')
-            felicidade += 2  # TEMP
+            felicidade += 1
             if felicidade > 15:
                 resto_amizade_1 = felicidade - 15
                 felicidade = felicidade - resto_amizade_1
@@ -119,11 +143,18 @@ def vida_adolecente():
     elif opcao_3 == "sim":
         if chance_2 < 50:
             print('Ela não quer ser sua amiga')
-            felicidade -= 2  # TEMP
+            felicidade -= 1
 
 comecar = str(input('Bora começar: '))
 if comecar == "sim":
     print('Bora\n')
     vida_bebe()
     vida_crianca()
-    vida_adolecente()
+    if sexopg == 0:
+        vida_adolecente_rapaz()
+    elif sexopg == 1:
+        print('fdg')  # TMP 
+
+#Anotações: Forma binaria para decisoes
+#           Diferente sexos (Masculino, Femenino)
+#           Comunidade LGBTQ+
