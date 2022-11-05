@@ -1,4 +1,5 @@
 import random as rd
+import sys
 
 
 vida = 0
@@ -6,24 +7,64 @@ felicidade = 0
 sexopg = 0
 biberaochao = 0
 biberao = 0
+bebe = 0
+lampada = 0
+pintura = 0
+chance = 0
+brinquedo = 0
 Futebol = 0
 Musica = 0
 Artes = 0
 Medicina = 0
 Literacia = 0
+Fumar = 0
 
 def pontuacao():
     print('\033[93m' + f'\nVida - {vida}')
     print(f'Felicidade - {felicidade}\n' + '\033[0m')
 
+def game_over():
+    if felicidade == 0:
+        print('Game Over')
+        print('Lembra-te suicidio nao e a melhor opção caso tenhas eeses pensamentos liga para ')
+        sys.exit('Tua vida tva tão mal que suisidas-te')
+    elif vida == 0:
+        print('Game Over')   
+        #exit() 
+        sys.exit('Perdes-te :)')
+
+def ajuda_felicidade():
+    global ajuda
+    global metade
+    global felicidade
+    global vida
+    metade = felicidade /2
+    if felicidade <= metade:
+        chance_ajuda = rd.randint(1, 3)
+        if chance_ajuda == 1:
+            ajuda = str(input('Ir com os amigos? '))
+            metade = felicidade /16 # Procurar qual o maximo de felicidade (papeis)
+            if ajuda == "sim":
+                felicidade += 5
+        elif chance_ajuda == 2:
+            ajuda = str(input('Quer fazer alguma atividade? '))
+            if ajuda == "sim":
+                felicidade += 5
+        elif chance_ajuda == 3:
+            ajuda = str(input('Quer fazer alguma atividade? '))
+            if ajuda == "sim":
+                felicidade += 5
+
 def sexo():
     global sexo_personagem
     global sexopg
-    sexo_personagem = str(input('Qual sexo do personagem (Masculino ou Femenino)?  '))
+    sexo_personagem = str(input('Qual sexo do personagem (Masculino, Feminino ou Nao Binarie)?  '))
     if sexo_personagem == "Masculino" or sexo_personagem == "masculino":
         sexopg = 0
-    if sexo_personagem == "Femenino" or sexo_personagem == "femenino":
+    if sexo_personagem == "Feminino" or sexo_personagem == "feminino":
         sexopg = 1    
+    elif sexo_personagem == "Nao-Binarie" or sexo_personagem == "nao-binarie" or sexo_personagem == "nao binarie" or sexo_personagem == "Nao Binarie":
+        sexopg = 2
 
 def vida_bebe():
     global vida
@@ -34,7 +75,7 @@ def vida_bebe():
     felicidade = 6
     pontuacao()
     pais = str(input('Vai querer com seus pais? '))
-    if pais == "sim":
+    if pais == "sim" or pais == "SIM":
         print('Voçe foi com os pais')
         if felicidade > 12:
             felicidade += 0
@@ -42,7 +83,7 @@ def vida_bebe():
         elif felicidade < 12:
             felicidade += 2
             pontuacao()
-    elif pais == "não":
+    elif pais == "não" or pais == "nao" or pais == "NAO" or pais == "NÃO":
         print('Não foste com os pais')
         felicidade += 0
         pontuacao()
@@ -108,16 +149,23 @@ def vida_crianca():
     pontuacao()  # So para a pessoa saber
 
 def vida_adolecente_rapaz():
-    global opcao_2
+    global felicidade
     global Futebol
     global Musica
     global Artes
     global Medicina
     global Literacia
+    global Fumar
     global profisao
+    global opcao_2    
     global opcao_3
+    global opcao_4
+    global opcao_5
     global chance_2
+    global chance_3
     global resto_amizade_1
+    global resto_amizade_2
+    global resto_amizade_3
     opcao_2 = int(input('1 - Futebol \n2 - Musica \n3 - Artes\n4 - Medicina\n5 - Literacia\n --> '))
     if opcao_2 == 1:
         Futebol = 1
@@ -136,6 +184,8 @@ def vida_adolecente_rapaz():
         if chance_2 > 50:
             print('Voce fez uma nova amiga : ')
             felicidade += 1
+            ajuda_felicidade()
+            game_over()
             if felicidade > 15:
                 resto_amizade_1 = felicidade - 15
                 felicidade = felicidade - resto_amizade_1
@@ -144,6 +194,52 @@ def vida_adolecente_rapaz():
         if chance_2 < 50:
             print('Ela não quer ser sua amiga')
             felicidade -= 1
+            ajuda_felicidade()
+            game_over()
+
+    opcao_4 = str(input('Tentar fazer um novo amigo? '))
+    chance_3 = rd.randint(0, 100)
+    if opcao_4 == "sim":
+        if chance_3 > 50:
+            print('Voce fez um novo amigo : ')
+            felicidade += 1
+            ajuda_felicidade()
+            game_over()
+            if felicidade > 15:
+                resto_amizade_2 = felicidade - 15
+                felicidade = felicidade - resto_amizade_2
+                pontuacao()
+
+    opcao5 = str(input('Tentar fazer uma novo amigo? '))
+    chance_4 = rd.randint(0, 100)
+    if opcao5 == "sim":
+        if chance_4 > 50:
+            print('Voce fez uma nova amigo : ')
+            felicidade -= 1
+            ajuda_felicidade()
+            game_over()
+            if felicidade > 15:
+                resto_amizade_3 = felicidade - 15
+                felicidade = felicidade - resto_amizade_3
+                pontuacao()
+
+    # Atividades que a pessoa ir a fazer 
+
+    Futebol = rd.randint(0, 20)
+    Musica = rd.randint(0, 20)
+    Artes = rd.randint(0, 20)
+    Medicina = rd.randint(0, 20)
+    Literacia = rd.randint(0, 20)
+    Fumar = rd.randint(0, 20)
+    if Futebol == 14 and profisao == 1:
+        felicidade =- 1
+
+def vida_adolecente_nao_binario():
+    print('a')
+
+def vida_adulta_rapaz():
+    opcao_6 = str(input('Tentar fazer uma novo amigo? '))
+    print('a')    
 
 comecar = str(input('Bora começar: '))
 if comecar == "sim":
@@ -155,6 +251,10 @@ if comecar == "sim":
     elif sexopg == 1:
         print('fdg')  # TMP 
 
-#Anotações: Forma binaria para decisoes
-#           Diferente sexos (Masculino, Femenino)
+#Anotações: Forma binaria para decisoes (0 para "nao" 1 para "sim") +/-
+#           Diferenças sexo "Não Binario
+#           Diferente sexos (Masculino, Feminino) +/-
 #           Comunidade LGBTQ+
+#           Pontuação ate aonde a ultima pessoa conseguiu chegar (fase adolecente, adulto etc)
+#           Para final de fase 1 caso seja 0 ele aparecera a fase 
+#           E se acabar antes o da frente nao vai aparecer
