@@ -1,0 +1,12 @@
+TO-DO (Recriação de Jogo [Python])
+
+--> Usar binário para decisões (0 para sim e 1 para mão) [exemplo]
+--> Introduzir o tipo de sexo "Não Binário"
+--> Fazer a fase para cada tipo de sexo
+--> Introdução da comunidade LGBTQIAPN+
+--> Pontuação final aparecer qual fase a pessoa chegou
+--> Confirmação para continuar de fase caso:
+vida_bb = 1
+ele continua senão:
+vida_bb = 0 [vida bebe exemplo]
+da como morto
