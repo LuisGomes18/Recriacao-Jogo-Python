@@ -165,6 +165,7 @@ def vida_adolecente_masculino_hetero():
     global Medicina
     global Literacia
     global Fumar
+    global media
     global profisao
     global opcao_2    
     global opcao_3
@@ -241,8 +242,43 @@ def vida_adolecente_masculino_hetero():
     Medicina = rd.randint(0, 20)
     Literacia = rd.randint(0, 20)
     Fumar = rd.randint(0, 20)
-    if Futebol == 14 and profisao == 1:
-        felicidade =- 1
+    media_fumar = int(Fumar / 15)
+    # 1 - Futebol \n2 - Musica \n3 - Artes\n4 - Medicina\n5 - Literacia
+    if opcao_2 == 1:
+        media = int((Musica + Artes + Medicina + Literacia) / 4)
+        felicidade -= media
+        felicidade -= media_fumar
+        ajuda_felicidade()
+        pontuacao()
+        game_over()
+    elif opcao_2 == 2:
+        media = int((Futebol + Artes + Medicina + Literacia) / 4)
+        felicidade -= media
+        felicidade -= media_fumar
+        ajuda_felicidade()
+        pontuacao()
+        game_over()
+    elif opcao_2 == 3:
+        media = int((Futebol + Musica + Medicina + Literacia) / 4)
+        felicidade -= media
+        felicidade -= media_fumar
+        ajuda_felicidade()
+        pontuacao()
+        game_over()
+    elif opcao_2 == 4:
+        meida = int((Futebol + Musica + Artes + Literacia) / 4)
+        felicidade -= media
+        felicidade -= media_fumar
+        ajuda_felicidade()
+        pontuacao()
+        game_over()        
+    elif opcao_2 == 5:
+        media = int((Futebol + Musica + Artes + Literacia) / 4)
+        felicidade -= media
+        felicidade -= media_fumar
+        ajuda_felicidade()
+        pontuacao()
+        game_over()
     vida_adc_r = 1
 
 def vida_adulto_masculino_hetero():
