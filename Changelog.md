@@ -10,6 +10,7 @@
 </ul>
 <h4>20/11/2022</h4>
 <ul>
+    <li>Correção parte das "Amizades"</li>
     <li>Inicio da criação da Fase Vida Adulto Hetero</li>
     <li>Correção na fase Vida Adolecente Hetero</li>
     <ul>
@@ -17,5 +18,5 @@
         <li>Adiçãoi de mais acontecimentos durante a fase</li>
         <li>Ajustes no ganho de felicidade</li>
     </ul>
-    <li>Finalmente a adição da comunidade LGBTQIANP+ 🏳️‍🌈</li>
+    <li>Finalmente a adição da comunidade LGBTQIAPN+🏳️‍🌈</li>
 </ul>
