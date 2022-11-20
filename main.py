@@ -37,6 +37,47 @@ def game_over():
         #exit() 
         sys.exit('Perdes-te :)')
 
+def amizades():
+    global felicidade
+    global level_amz
+    global chance_amz #! TMP
+    chance_amz = rd.randint(0 ,1)
+    if chance_amz == 0:
+        opcao_amz = str(input('Tentar fazer uma nova amiga? '))
+        opcao_pess = rd.randint(0, 100)
+        if opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess > 50:
+            print('Voce fez um nova amiga')
+            felicidade += 1
+            if felicidade > 15:
+                resto_amizade_1 = felicidade - 15
+                felicidade = felicidade - resto_amizade_1
+                pontuacao()
+                level_amz += 1
+        elif opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess < 50:
+            print('Ela não quer ser tua amiga')
+            felicidade -= 1
+            pontuacao()
+        elif opcao_amz == "nao" or opcao_amz == "NAO" or opcao_amz == "não" or opcao_amz == "NÃO":
+            print('Voce nao quis ser amigo dela')
+
+    elif chance_amz == 1:
+        opcao_amz = str(input('Tentar fazer uma nova amigo? '))
+        opcao_pess = rd.randint(0, 100)
+        if opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess > 50:
+            print('Voce fez um novo amigo')
+            felicidade += 1
+            if felicidade > 15:
+                resto_amizade_1 = felicidade - 15
+                felicidade = felicidade - resto_amizade_1
+                pontuacao()
+                level_amz += 1
+        elif opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess < 50:
+            print('Ela não quer ser tua amigo')
+            felicidade -= 1
+            pontuacao()
+        elif opcao_amz == "nao" or opcao_amz == "NAO" or opcao_amz == "não" or opcao_amz == "NÃO":
+            print('Voce nao quis ser amigo dele')
+
 def ajuda_felicidade():
     global ajuda
     global metade
