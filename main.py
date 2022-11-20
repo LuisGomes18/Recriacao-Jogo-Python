@@ -126,7 +126,7 @@ def vida_crianca():
     pintura = rd.randint(0, 4)
     chance = rd.randint(0, 100)
 
-    # Chance para saber se o brinquedo ira aparecer ou não
+    #* Chance para saber se o brinquedo ira aparecer ou não
     if chance > 50:
         brinquedo = rd.randint(0, 1)
     if bebe > 3:
@@ -154,7 +154,7 @@ def vida_crianca():
         print(f'lampada {lampada}/9')
     elif pintura < 3:
         print(f'pintura {pintura}/3')
-    pontuacao()  # So para a pessoa saber
+    pontuacao()  #* So para a pessoa saber
     vida_c = 1
 
 def vida_adolecente_masculino_hetero():
@@ -167,12 +167,18 @@ def vida_adolecente_masculino_hetero():
     global Fumar
     global media
     global profisao
+    global media
+    global media_fumar
     global opcao_2    
     global opcao_3
     global opcao_4
     global opcao_5
+    global opcao_6
+    global chance_5
     global chance_2
     global chance_3
+    global chance_4
+    global chance_5
     global resto_amizade_1
     global resto_amizade_2
     global resto_amizade_3
@@ -221,9 +227,9 @@ def vida_adolecente_masculino_hetero():
                 felicidade = felicidade - resto_amizade_2
                 pontuacao()
 
-    opcao5 = str(input('Tentar fazer uma novo amigo? '))
+    opcao_5 = str(input('Tentar fazer uma novo amigo? '))
     chance_4 = rd.randint(0, 100)
-    if opcao5 == "sim":
+    if opcao_5 == "sim":
         if chance_4 > 50:
             print('Voce fez uma nova amigo : ')
             felicidade -= 1
@@ -243,7 +249,6 @@ def vida_adolecente_masculino_hetero():
     Literacia = rd.randint(0, 20)
     Fumar = rd.randint(0, 20)
     media_fumar = int(Fumar / 15)
-    # 1 - Futebol \n2 - Musica \n3 - Artes\n4 - Medicina\n5 - Literacia
     if opcao_2 == 1:
         media = int((Musica + Artes + Medicina + Literacia) / 4)
         felicidade -= media
@@ -266,7 +271,7 @@ def vida_adolecente_masculino_hetero():
         pontuacao()
         game_over()
     elif opcao_2 == 4:
-        meida = int((Futebol + Musica + Artes + Literacia) / 4)
+        media = int((Futebol + Musica + Artes + Literacia) / 4)
         felicidade -= media
         felicidade -= media_fumar
         ajuda_felicidade()
@@ -279,11 +284,25 @@ def vida_adolecente_masculino_hetero():
         ajuda_felicidade()
         pontuacao()
         game_over()
+    opcao_6 = str(input('Tentar fazer uma novo amigo? ')) #? Mudar depois para brincar , ler com amigos e etc
+    chance_5 = rd.randint(0, 100)
+    if opcao_6 == "sim":
+        if chance_5 > 50:
+            print('Voce fez uma nova amigo : ')  #? Mudar depois para brincar , ler com amigos e etc
+            felicidade -= 1
+            ajuda_felicidade()
+            game_over()
+            if felicidade > 15:
+                resto_amizade_3 = felicidade - 15
+                felicidade = felicidade - resto_amizade_3
+                pontuacao()
+
     vida_adc_r = 1
 
 def vida_adulto_masculino_hetero():
-    print(1)   
+    var = 1 #! TMP
     
+
 comecar = str(input('Start? '))
 if comecar == "sim" or comecar == "Sim" or comecar == "SIM":
     print('A começar')
