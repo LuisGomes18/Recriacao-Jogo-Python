@@ -18,6 +18,7 @@ Artes = 0
 Medicina = 0
 Literacia = 0
 Fumar = 0
+moedas = 0
 vida_b = 0
 vida_c = 0
 vida_adc_r = 0
@@ -41,7 +42,7 @@ def amizades():
     global felicidade
     global level_amz
     global chance_amz #! TMP
-    chance_amz = rd.randint(0 ,1)
+    chance_amz = rd.randint(0 ,2)
     if chance_amz == 0:
         opcao_amz = str(input('Tentar fazer uma nova amiga? '))
         opcao_pess = rd.randint(0, 100)
@@ -59,6 +60,7 @@ def amizades():
             pontuacao()
         elif opcao_amz == "nao" or opcao_amz == "NAO" or opcao_amz == "não" or opcao_amz == "NÃO":
             print('Voce nao quis ser amigo dela')
+            pontuacao()
 
     elif chance_amz == 1:
         opcao_amz = str(input('Tentar fazer uma nova amigo? '))
@@ -74,9 +76,16 @@ def amizades():
         elif opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess < 50:
             print('Ela não quer ser tua amigo')
             felicidade -= 1
+            ajuda_felicidade()
+            game_over()
             pontuacao()
         elif opcao_amz == "nao" or opcao_amz == "NAO" or opcao_amz == "não" or opcao_amz == "NÃO":
             print('Voce nao quis ser amigo dele')
+            pontuacao()
+
+    elif chance_amz == 3:
+        opcao_amz = str(input('Tentar fazer uma nova amigo? '))
+        opcao_pess = rd.randint(0, 100)
 
 def ajuda_felicidade():
     global ajuda
@@ -91,14 +100,23 @@ def ajuda_felicidade():
             metade = felicidade /16 # Procurar qual o maximo de felicidade (papeis)
             if ajuda == "sim":
                 felicidade += 5
+                ajuda_felicidade()
+                pontuacao()
+                game_over()
         elif chance_ajuda == 2:
             ajuda = str(input('Quer fazer alguma atividade? '))
             if ajuda == "sim":
                 felicidade += 5
+                ajuda_felicidade()
+                pontuacao()
+                game_over()
         elif chance_ajuda == 3:
             ajuda = str(input('Quer fazer alguma atividade? '))
             if ajuda == "sim":
                 felicidade += 5
+                ajuda_felicidade()
+                pontuacao()
+                game_over()
 
 def sexo():
     global sexo_personagem
@@ -342,7 +360,8 @@ def vida_adolecente_masculino_hetero():
 
 def vida_adulto_masculino_hetero():
     var = 1 #! TMP
-    
+    global moedas
+    moedas = rd.randint(0, 20)
 
 comecar = str(input('Start? '))
 if comecar == "sim" or comecar == "Sim" or comecar == "SIM":
