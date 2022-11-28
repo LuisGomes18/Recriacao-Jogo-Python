@@ -41,7 +41,7 @@ def game_over():
 def amizades():
     global felicidade
     global level_amz
-    global chance_amz #! TMP
+    global chance_amz
     chance_amz = rd.randint(0 ,2)
     if chance_amz == 0:
         opcao_amz = str(input('Tentar fazer uma nova amiga? '))
@@ -396,6 +396,11 @@ def vida_adulto_masculino_hetero():
     global ramo_pq
     global ramo_md
     global ramo_gr
+    global carro_barato
+    global carro_medio
+    global carro_caro
+    global nv_chance_casar
+    global nv_chance_carro
     moedas = rd.randint(0, 33)
     dinheiro = moedas
     comida = rd.randint(0, 5)
@@ -411,16 +416,16 @@ def vida_adulto_masculino_hetero():
     elif ajudar_pobre == "nao":
         felicidade -= 1
     #! Parte do casamento
-    ramo_pq = 10
-    ramo_md = 20
-    ramo_gr = 30
+    ramo_pq = 10 #! TMP
+    ramo_md = 20 #! TMP
+    ramo_gr = 30 #! TMP
     nv_chance_casar = 0
     print('Escolha do ramo de flores')
-    escflores = str(input('grande, media ou pequeno'))
+    escflores = str(input('grande, media ou pequeno '))
     if escflores == "grande" and dinheiro >= ramo_gr:
         print('Voçe comprou o ramo grande')
         nv_chance_casar = 1
-    elif escflores == "grande" and dinhero < ramo_gr:
+    elif escflores == "grande" and dinheiro < ramo_gr:
         print('Voce não tem dinhero')
         if dinheiro >= ramo_md:
             print('Voce comprou o ramo medio')
@@ -428,6 +433,22 @@ def vida_adulto_masculino_hetero():
         elif dinheiro < ramo_md:
             print('Voce comprou o ramo pequeno')
             nv_chance_casar = 3
+    carro_barato = 10 #! TMP
+    carro_medio = 20 #! TMP
+    carro_caro = 30 #! TMP
+    nv_chance_carro = 0
+    esccarro = str(input('Caro, Medio ou barato '))
+    if esccarro == "caro" and dinheiro >= carro_caro:
+        print('Voce comprou o carro caro')
+        nv_chance_carro = 1
+    elif esccarro == "grande" and dinheiro < carro_caro:
+        print('Voce não tem dinhero')
+        if dinheiro >= carro_medio:
+            print('Voce comprou o carro medio')
+            nv_chance_carro = 2
+        elif dinheiro < carro_medio:
+            print('Voce comprou o carro barato')
+            nv_chance_carro = 3
 
 comecar = str(input('Start? '))
 if comecar == "sim" or comecar == "Sim" or comecar == "SIM":
