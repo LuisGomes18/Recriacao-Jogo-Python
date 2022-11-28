@@ -87,6 +87,35 @@ def amizades():
         opcao_amz = str(input('Tentar fazer uma nova amigo? '))
         opcao_pess = rd.randint(0, 100)
 
+def escolhas_adulto1():
+    reuniao = str(input('Ir a reunião '))
+    if reuniao == "sim":
+        felicidade -= 2
+        ajuda_felicidade()
+        pontuacao()
+        game_over()
+    escadl = rd.randint(0, 1)
+    if escadl == 1:
+        escadl2 = str(input('Ajudar colega com trabalho '))
+        if escadl2 == "sim" or escadl2 == "SIM":
+            felicidade += 2
+            pontuacao()
+        elif escadl2 == "nao" or escadl2 == "NAO" or escadl2 == "não" or escadl2 == "NÃO":
+            felicidade -= 2
+            ajuda_felicidade()
+            pontuacao()
+            game_over()
+    elif escadl == 2:
+        escadl3 = str(input('Ajudar colega com a fotocopiadora '))
+        if escadl3 == "sim" or escadl3 == "SIM":
+            felicidade += 2
+            pontuacao()
+        elif escadl3 == "nao" or escadl3 == "NAO" or escadl3 == "não" or escadl3 == "NÃO":
+            felicidade -= 2
+            ajuda_felicidade()
+            pontuacao()
+            game_over()
+
 def ajuda_felicidade():
     global ajuda
     global metade
@@ -359,9 +388,46 @@ def vida_adolecente_masculino_hetero():
     vida_adc_r = 1
 
 def vida_adulto_masculino_hetero():
-    var = 1 #! TMP
     global moedas
-    moedas = rd.randint(0, 20)
+    global dinheiro
+    global comida
+    global fumar
+    global ginasio
+    global ramo_pq
+    global ramo_md
+    global ramo_gr
+    moedas = rd.randint(0, 33)
+    dinheiro = moedas
+    comida = rd.randint(0, 5)
+    fumar = rd.randint(0, 1)
+    ginasio = rd.randint(0, 1)
+    felicidade -= comida
+    felicidade -= fumar
+    felicidade -= ginasio
+    escolhas_adulto1()
+    ajudar_pobre = str(input('Ajudar pobre '))
+    if ajudar_pobre == "sim":
+        dinheiro -= 2
+    elif ajudar_pobre == "nao":
+        felicidade -= 1
+    #! Parte do casamento
+    ramo_pq = 10
+    ramo_md = 20
+    ramo_gr = 30
+    nv_chance_casar = 0
+    print('Escolha do ramo de flores')
+    escflores = str(input('grande, media ou pequeno'))
+    if escflores == "grande" and dinheiro >= ramo_gr:
+        print('Voçe comprou o ramo grande')
+        nv_chance_casar = 1
+    elif escflores == "grande" and dinhero < ramo_gr:
+        print('Voce não tem dinhero')
+        if dinheiro >= ramo_md:
+            print('Voce comprou o ramo medio')
+            nv_chance_casar = 2
+        elif dinheiro < ramo_md:
+            print('Voce comprou o ramo pequeno')
+            nv_chance_casar = 3
 
 comecar = str(input('Start? '))
 if comecar == "sim" or comecar == "Sim" or comecar == "SIM":
