@@ -413,8 +413,14 @@ def vida_adulto_masculino_hetero():
     ajudar_pobre = str(input('Ajudar pobre '))
     if ajudar_pobre == "sim":
         dinheiro -= 2
+        print(dinheiro)
+        pontuacao()
     elif ajudar_pobre == "nao":
         felicidade -= 1
+        ajuda_felicidade()
+        print(dinheiro)
+        pontuacao()
+        game_over()
     #! Parte do casamento
     ramo_pq = 10 #! TMP
     ramo_md = 20 #! TMP
