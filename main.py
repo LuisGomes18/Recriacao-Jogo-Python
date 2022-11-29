@@ -1,5 +1,7 @@
 import random as rd
-import sys
+import time as tm
+import sys, os
+
 
 
 vida = 0
@@ -48,6 +50,7 @@ def amizades():
         opcao_pess = rd.randint(0, 100)
         if opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess > 50:
             print('Voce fez um nova amiga')
+            pontuacao()
             felicidade += 1
             if felicidade > 15:
                 resto_amizade_1 = felicidade - 15
@@ -68,6 +71,7 @@ def amizades():
         if opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess > 50:
             print('Voce fez um novo amigo')
             felicidade += 1
+            pontuacao()
             if felicidade > 15:
                 resto_amizade_1 = felicidade - 15
                 felicidade = felicidade - resto_amizade_1
@@ -88,6 +92,7 @@ def amizades():
         opcao_pess = rd.randint(0, 100)
 
 def escolhas_adulto1():
+    global felicidade
     reuniao = str(input('Ir a reunião '))
     if reuniao == "sim":
         felicidade -= 2
@@ -98,10 +103,10 @@ def escolhas_adulto1():
     if escadl == 1:
         escadl2 = str(input('Ajudar colega com trabalho '))
         if escadl2 == "sim" or escadl2 == "SIM":
-            felicidade += 2
+            felicidade = felicidade + 2
             pontuacao()
         elif escadl2 == "nao" or escadl2 == "NAO" or escadl2 == "não" or escadl2 == "NÃO":
-            felicidade -= 2
+            felicidade = felicidade - 2
             ajuda_felicidade()
             pontuacao()
             game_over()
@@ -159,6 +164,7 @@ def sexo():
         sexopg = 2
 
 def vida_bebe():
+    print('COMEÇO DA FASE BÉBÉ')
     global vida
     global felicidade
     global biberao
@@ -198,8 +204,11 @@ def vida_bebe():
     elif felicidade < 15:
         pontuacao()
     vida_b = 1
+    print('ACABA FASE BÉBÉ')
 
 def vida_crianca():
+    print('COMEÇO DA FASE CRIANÇA')
+    global felicidade
     global bebe
     global lampada
     global pintura
@@ -244,8 +253,10 @@ def vida_crianca():
         print(f'pintura {pintura}/3')
     pontuacao()  #* So para a pessoa saber
     vida_c = 1
+    print('ACABA FASE CRIANÇA')
 
 def vida_adolecente_masculino_hetero():
+    print('COMEÇO DA FASE ADOLECENTE MASCULINO')
     global felicidade
     global Futebol
     global Musica
@@ -288,8 +299,9 @@ def vida_adolecente_masculino_hetero():
     if opcao_3 == "sim":
         if chance_2 > 50:
             print('Voce fez uma nova amiga : ')
-            felicidade += 1
+            felicidade += 5
             ajuda_felicidade()
+            pontuacao()
             game_over()
             if felicidade > 15:
                 resto_amizade_1 = felicidade - 15
@@ -300,6 +312,7 @@ def vida_adolecente_masculino_hetero():
             print('Ela não quer ser sua amiga')
             felicidade -= 1
             ajuda_felicidade()
+            pontuacao()
             game_over()
 
     opcao_4 = str(input('Tentar fazer um novo amigo? '))
@@ -307,8 +320,8 @@ def vida_adolecente_masculino_hetero():
     if opcao_4 == "sim":
         if chance_3 > 50:
             print('Voce fez um novo amigo : ')
-            felicidade += 1
-            ajuda_felicidade()
+            felicidade += 5
+            pontuacao()
             game_over()
             if felicidade > 15:
                 resto_amizade_2 = felicidade - 15
@@ -320,8 +333,9 @@ def vida_adolecente_masculino_hetero():
     if opcao_5 == "sim":
         if chance_4 > 50:
             print('Voce fez uma nova amigo : ')
-            felicidade -= 1
+            felicidade += 5
             ajuda_felicidade()
+            pontuacao()
             game_over()
             if felicidade > 15:
                 resto_amizade_3 = felicidade - 15
@@ -386,8 +400,11 @@ def vida_adolecente_masculino_hetero():
                 pontuacao()
 
     vida_adc_r = 1
+    print('ACABA FASE ADOLECENTE MASCULINO')
 
 def vida_adulto_masculino_hetero():
+    print('COMEÇO DA FASE ADULTO MASCULINO')
+    global felicidade
     global moedas
     global dinheiro
     global comida
@@ -406,9 +423,9 @@ def vida_adulto_masculino_hetero():
     comida = rd.randint(0, 5)
     fumar = rd.randint(0, 1)
     ginasio = rd.randint(0, 1)
-    felicidade -= comida
-    felicidade -= fumar
-    felicidade -= ginasio
+    felicidade = felicidade - comida
+    felicidade = felicidade -  fumar
+    felicidade = felicidade - ginasio
     escolhas_adulto1()
     ajudar_pobre = str(input('Ajudar pobre '))
     if ajudar_pobre == "sim":
@@ -456,6 +473,12 @@ def vida_adulto_masculino_hetero():
             print('Voce comprou o carro barato')
             nv_chance_carro = 3
 
+    casar = int(input('1 para primeiro 2 para o segundo 3 para o terceiro'))
+    if casar == 1:
+        print('a')
+    print('ACABA FASE ADULTO MASCULINO')
+
+os.system('cls')
 comecar = str(input('Start? '))
 if comecar == "sim" or comecar == "Sim" or comecar == "SIM":
     print('A começar')
