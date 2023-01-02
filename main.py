@@ -4,6 +4,7 @@ from sys import exit
 from os import system
 
 
+#! Rever as variaveis
 vida = 0
 felicidade = 0
 sexopg = 0
@@ -39,7 +40,7 @@ def ajuda_felicidade():
         chance_ajuda = randint(1, 3)
         if chance_ajuda == 1:
             ajuda = str(input('Ir com os amigos? '))
-            metade = felicidade /16 # Procurar qual o maximo de felicidade (papeis)
+            metade = felicidade /16 #! Procurar qual o maximo de felicidade (papeis)
             if ajuda == "sim":
                 felicidade += 5
                 pontuacao()
@@ -195,7 +196,7 @@ def vida_bebe():
     print('OBS: Neste caso ja que não tem interface e tudo gerado de forma random')
     biberaochao = randint(1, 2)
     biberao = randint(biberaochao, 9)
-    felicidade += biberao  # biberao = 1
+    felicidade += biberao
     if felicidade > 15:
         resto = felicidade - 15
         felicidade = felicidade - resto
@@ -222,7 +223,6 @@ def vida_crianca():
     pintura = randint(0, 4)
     chance = randint(0, 100)
 
-    #* Chance para saber se o brinquedo ira aparecer ou não
     if chance > 50:
         brinquedo = randint(0, 1)
     if bebe > 3:
@@ -250,7 +250,7 @@ def vida_crianca():
         print(f'lampada {lampada}/9')
     elif pintura < 3:
         print(f'pintura {pintura}/3')
-    pontuacao()  #* So para a pessoa saber
+    pontuacao()
     vida_c = 1
     print('ACABA FASE CRIANÇA')
 
@@ -339,8 +339,6 @@ def vida_adolecente_masculino_hetero():
                 felicidade = felicidade - resto_amizade_3
                 pontuacao()
 
-    # Atividades que a pessoa ir a fazer
-
     Futebol = randint(0, 20)
     Musica = randint(0, 20)
     Artes = randint(0, 20)
@@ -383,11 +381,11 @@ def vida_adolecente_masculino_hetero():
         ajuda_felicidade()
         pontuacao()
         game_over()
-    opcao_6 = str(input('Tentar fazer uma novo amigo? ')) #? Mudar depois para brincar , ler com amigos e etc
+    opcao_6 = str(input('Tentar fazer uma novo amigo? ')) #! Mudar depois para brincar , ler com amigos e etc
     chance_5 = randint(0, 100)
     if opcao_6 == "sim":
         if chance_5 > 50:
-            print('Voce fez uma nova amigo : ')  #? Mudar depois para brincar , ler com amigos e etc
+            print('Voce fez uma nova amigo : ')  #! Mudar depois para brincar , ler com amigos e etc
             felicidade -= 1
             ajuda_felicidade()
             game_over()
@@ -435,7 +433,7 @@ def vida_adulto_masculino_hetero():
         print(dinheiro)
         pontuacao()
         game_over()
-    #! Parte do casamento
+
     ramo_pq = 10 #! TMP
     ramo_md = 20 #! TMP
     ramo_gr = 30 #! TMP
