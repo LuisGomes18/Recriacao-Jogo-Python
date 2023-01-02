@@ -30,11 +30,54 @@ def pontuacao():
     print('\033[93m' + f'\nVida - {vida}')
     print(f'Felicidade - {felicidade}\n' + '\033[0m')
 
+def ajuda_felicidade():
+    global ajuda
+    global metade
+    global felicidade
+    global vida
+    metade = felicidade /2
+    if felicidade <= metade:
+        chance_ajuda = randint(1, 3)
+        if chance_ajuda == 1:
+            ajuda = str(input('Ir com os amigos? '))
+            metade = felicidade /16 # Procurar qual o maximo de felicidade (papeis)
+            if ajuda == "sim":
+                felicidade += 5
+                ajuda_felicidade()
+                pontuacao()
+                game_over()
+        elif chance_ajuda == 2:
+            ajuda = str(input('Quer fazer alguma atividade? '))
+            if ajuda == "sim":
+                felicidade += 5
+                ajuda_felicidade()
+                pontuacao()
+                game_over()
+        elif chance_ajuda == 3:
+            ajuda = str(input('Quer fazer alguma atividade? '))
+            if ajuda == "sim":
+                felicidade += 5
+                ajuda_felicidade()
+                pontuacao()
+                game_over()
+
+def sexo():
+    global sexo_personagem
+    global sexopg
+    sexo_personagem = str(input('Qual sexo do personagem (Masculino, Feminino ou Nao Binarie)?  '))
+    if sexo_personagem == "Masculino" or sexo_personagem == "masculino":
+        sexopg = 0
+    if sexo_personagem == "Feminino" or sexo_personagem == "feminino":
+        sexopg = 1
+    elif sexo_personagem == "Nao-Binarie" or sexo_personagem == "nao-binarie" or sexo_personagem == "nao binarie" or sexo_personagem == "Nao Binarie":
+        sexopg = 2
+
 def game_over():
     if felicidade == 0:
         print('Game Over')
         print('Lembra-te suicídio nao e a melhor opção caso tenhas esses pensamentos liga para\n 122 ou https://prevenirsuicidio.pt/contactos-e-servicos-disponiveis/ (Portugal) 188 (Brasil) ')
-        exit('Tua vida tva tão mal que suicidas-te')
+        exit('Tua vida tva tão mal que suicidas-te') #! TMP
+
     elif vida == 0:
         print('Game Over')
         exit('Perdes-te :)')
@@ -119,48 +162,6 @@ def escolhas_adulto1():
             ajuda_felicidade()
             pontuacao()
             game_over()
-
-def ajuda_felicidade():
-    global ajuda
-    global metade
-    global felicidade
-    global vida
-    metade = felicidade /2
-    if felicidade <= metade:
-        chance_ajuda = randint(1, 3)
-        if chance_ajuda == 1:
-            ajuda = str(input('Ir com os amigos? '))
-            metade = felicidade /16 # Procurar qual o maximo de felicidade (papeis)
-            if ajuda == "sim":
-                felicidade += 5
-                ajuda_felicidade()
-                pontuacao()
-                game_over()
-        elif chance_ajuda == 2:
-            ajuda = str(input('Quer fazer alguma atividade? '))
-            if ajuda == "sim":
-                felicidade += 5
-                ajuda_felicidade()
-                pontuacao()
-                game_over()
-        elif chance_ajuda == 3:
-            ajuda = str(input('Quer fazer alguma atividade? '))
-            if ajuda == "sim":
-                felicidade += 5
-                ajuda_felicidade()
-                pontuacao()
-                game_over()
-
-def sexo():
-    global sexo_personagem
-    global sexopg
-    sexo_personagem = str(input('Qual sexo do personagem (Masculino, Feminino ou Nao Binarie)?  '))
-    if sexo_personagem == "Masculino" or sexo_personagem == "masculino":
-        sexopg = 0
-    if sexo_personagem == "Feminino" or sexo_personagem == "feminino":
-        sexopg = 1
-    elif sexo_personagem == "Nao-Binarie" or sexo_personagem == "nao-binarie" or sexo_personagem == "nao binarie" or sexo_personagem == "Nao Binarie":
-        sexopg = 2
 
 def vida_bebe():
     print('COMEÇO DA FASE BÉBÉ')
