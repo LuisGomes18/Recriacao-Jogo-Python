@@ -27,8 +27,7 @@ vida_adc_r = 0
 vida_adc_nb = 0
 
 def pontuacao():
-    print('\033[93m' + f'\nVida - {vida}')
-    print(f'Felicidade - {felicidade}\n' + '\033[0m')
+    print('\033[93m' + f'\nVida - {vida}\nFelicidade - {felicidade}\n' + '\033[0m')
 
 def ajuda_felicidade():
     global ajuda
@@ -43,21 +42,18 @@ def ajuda_felicidade():
             metade = felicidade /16 # Procurar qual o maximo de felicidade (papeis)
             if ajuda == "sim":
                 felicidade += 5
-                ajuda_felicidade()
                 pontuacao()
                 game_over()
         elif chance_ajuda == 2:
             ajuda = str(input('Quer fazer alguma atividade? '))
             if ajuda == "sim":
                 felicidade += 5
-                ajuda_felicidade()
                 pontuacao()
                 game_over()
         elif chance_ajuda == 3:
             ajuda = str(input('Quer fazer alguma atividade? '))
             if ajuda == "sim":
                 felicidade += 5
-                ajuda_felicidade()
                 pontuacao()
                 game_over()
 
@@ -76,11 +72,11 @@ def game_over():
     if felicidade == 0:
         print('Game Over')
         print('Lembra-te suicídio nao e a melhor opção caso tenhas esses pensamentos liga para\n 122 ou https://prevenirsuicidio.pt/contactos-e-servicos-disponiveis/ (Portugal) 188 (Brasil) ')
-        exit('Tua vida tva tão mal que suicidas-te') #! TMP
+        exit('Perdes-te') #! TMP
 
     elif vida == 0:
         print('Game Over')
-        exit('Perdes-te :)')
+        exit('Perdes-te :)') #! TMP
 
 def amizades():
     global felicidade
@@ -102,7 +98,9 @@ def amizades():
         elif opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess < 50:
             print('Ela não quer ser tua amiga')
             felicidade -= 1
+            ajuda_felicidade()
             pontuacao()
+            game_over()
         elif opcao_amz == "nao" or opcao_amz == "NAO" or opcao_amz == "não" or opcao_amz == "NÃO":
             print('Voce nao quis ser amigo dela')
             pontuacao()
@@ -113,6 +111,7 @@ def amizades():
         if opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess > 50:
             print('Voce fez um novo amigo')
             felicidade += 1
+    
             pontuacao()
             if felicidade > 15:
                 resto_amizade_1 = felicidade - 15
@@ -300,7 +299,6 @@ def vida_adolecente_masculino_hetero():
         if chance_2 > 50:
             print('Voce fez uma nova amiga : ')
             felicidade += 5
-            ajuda_felicidade()
             pontuacao()
             game_over()
             if felicidade > 15:
@@ -334,7 +332,6 @@ def vida_adolecente_masculino_hetero():
         if chance_4 > 50:
             print('Voce fez uma nova amigo : ')
             felicidade += 5
-            ajuda_felicidade()
             pontuacao()
             game_over()
             if felicidade > 15:
