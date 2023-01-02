@@ -1,7 +1,7 @@
-import random as rd
-import time as tm
-import sys, os
-
+from random import randint
+from time import sleep
+from sys import exit
+from os import system
 
 
 vida = 0
@@ -34,20 +34,19 @@ def game_over():
     if felicidade == 0:
         print('Game Over')
         print('Lembra-te suicídio nao e a melhor opção caso tenhas esses pensamentos liga para\n 122 ou https://prevenirsuicidio.pt/contactos-e-servicos-disponiveis/ (Portugal) 188 (Brasil) ')
-        sys.exit('Tua vida tva tão mal que suicidas-te')
+        exit('Tua vida tva tão mal que suicidas-te')
     elif vida == 0:
-        print('Game Over')   
-        #exit() 
-        sys.exit('Perdes-te :)')
+        print('Game Over')
+        exit('Perdes-te :)')
 
 def amizades():
     global felicidade
     global level_amz
     global chance_amz
-    chance_amz = rd.randint(0 ,2)
+    chance_amz = randint(0 ,2)
     if chance_amz == 0:
         opcao_amz = str(input('Tentar fazer uma nova amiga? '))
-        opcao_pess = rd.randint(0, 100)
+        opcao_pess = randint(0, 100)
         if opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess > 50:
             print('Voce fez um nova amiga')
             pontuacao()
@@ -67,7 +66,7 @@ def amizades():
 
     elif chance_amz == 1:
         opcao_amz = str(input('Tentar fazer uma nova amigo? '))
-        opcao_pess = rd.randint(0, 100)
+        opcao_pess = randint(0, 100)
         if opcao_amz == "sim" or opcao_amz == "SIM" and opcao_pess > 50:
             print('Voce fez um novo amigo')
             felicidade += 1
@@ -89,7 +88,7 @@ def amizades():
 
     elif chance_amz == 3:
         opcao_amz = str(input('Tentar fazer uma nova amigo? '))
-        opcao_pess = rd.randint(0, 100)
+        opcao_pess = randint(0, 100)
 
 def escolhas_adulto1():
     global felicidade
@@ -99,7 +98,7 @@ def escolhas_adulto1():
         ajuda_felicidade()
         pontuacao()
         game_over()
-    escadl = rd.randint(0, 1)
+    escadl = randint(0, 1)
     if escadl == 1:
         escadl2 = str(input('Ajudar colega com trabalho '))
         if escadl2 == "sim" or escadl2 == "SIM":
@@ -128,7 +127,7 @@ def ajuda_felicidade():
     global vida
     metade = felicidade /2
     if felicidade <= metade:
-        chance_ajuda = rd.randint(1, 3)
+        chance_ajuda = randint(1, 3)
         if chance_ajuda == 1:
             ajuda = str(input('Ir com os amigos? '))
             metade = felicidade /16 # Procurar qual o maximo de felicidade (papeis)
@@ -159,7 +158,7 @@ def sexo():
     if sexo_personagem == "Masculino" or sexo_personagem == "masculino":
         sexopg = 0
     if sexo_personagem == "Feminino" or sexo_personagem == "feminino":
-        sexopg = 1    
+        sexopg = 1
     elif sexo_personagem == "Nao-Binarie" or sexo_personagem == "nao-binarie" or sexo_personagem == "nao binarie" or sexo_personagem == "Nao Binarie":
         sexopg = 2
 
@@ -194,8 +193,8 @@ def vida_bebe():
 
     print('Apanhar os biberões')
     print('OBS: Neste caso ja que não tem interface e tudo gerado de forma random')
-    biberaochao = rd.randint(1, 2)
-    biberao = rd.randint(biberaochao, 9)
+    biberaochao = randint(1, 2)
+    biberao = randint(biberaochao, 9)
     felicidade += biberao  # biberao = 1
     if felicidade > 15:
         resto = felicidade - 15
@@ -218,14 +217,14 @@ def vida_crianca():
     global resto_lampada
     global resto_pintura
     global vida_c
-    bebe = rd.randint(0, 4)
-    lampada = rd.randint(0, 14)
-    pintura = rd.randint(0, 4)
-    chance = rd.randint(0, 100)
+    bebe = randint(0, 4)
+    lampada = randint(0, 14)
+    pintura = randint(0, 4)
+    chance = randint(0, 100)
 
     #* Chance para saber se o brinquedo ira aparecer ou não
     if chance > 50:
-        brinquedo = rd.randint(0, 1)
+        brinquedo = randint(0, 1)
     if bebe > 3:
         resto_bebe = bebe - 3
         bebe = bebe - resto_bebe
@@ -268,7 +267,7 @@ def vida_adolecente_masculino_hetero():
     global profisao
     global media
     global media_fumar
-    global opcao_2    
+    global opcao_2
     global opcao_3
     global opcao_4
     global opcao_5
@@ -286,16 +285,16 @@ def vida_adolecente_masculino_hetero():
     if opcao_2 == 1:
         Futebol = 1
     elif opcao_2 == 2:
-        Musica = rd.randint(0, 13)
+        Musica = randint(0, 13)
     elif opcao_2 == 3:
         Artes = 1
     elif opcao_2 == 4:
         Medicina = 1
     elif opcao_2 == 5:
-        Literacia = 1                     
+        Literacia = 1
     profisao = opcao_2
     opcao_3 = str(input('Tentar fazer uma nova amiga? '))
-    chance_2 = rd.randint(0, 100)
+    chance_2 = randint(0, 100)
     if opcao_3 == "sim":
         if chance_2 > 50:
             print('Voce fez uma nova amiga : ')
@@ -316,7 +315,7 @@ def vida_adolecente_masculino_hetero():
             game_over()
 
     opcao_4 = str(input('Tentar fazer um novo amigo? '))
-    chance_3 = rd.randint(0, 100)
+    chance_3 = randint(0, 100)
     if opcao_4 == "sim":
         if chance_3 > 50:
             print('Voce fez um novo amigo : ')
@@ -329,7 +328,7 @@ def vida_adolecente_masculino_hetero():
                 pontuacao()
 
     opcao_5 = str(input('Tentar fazer uma novo amigo? '))
-    chance_4 = rd.randint(0, 100)
+    chance_4 = randint(0, 100)
     if opcao_5 == "sim":
         if chance_4 > 50:
             print('Voce fez uma nova amigo : ')
@@ -342,14 +341,14 @@ def vida_adolecente_masculino_hetero():
                 felicidade = felicidade - resto_amizade_3
                 pontuacao()
 
-    # Atividades que a pessoa ir a fazer 
+    # Atividades que a pessoa ir a fazer
 
-    Futebol = rd.randint(0, 20)
-    Musica = rd.randint(0, 20)
-    Artes = rd.randint(0, 20)
-    Medicina = rd.randint(0, 20)
-    Literacia = rd.randint(0, 20)
-    Fumar = rd.randint(0, 20)
+    Futebol = randint(0, 20)
+    Musica = randint(0, 20)
+    Artes = randint(0, 20)
+    Medicina = randint(0, 20)
+    Literacia = randint(0, 20)
+    Fumar = randint(0, 20)
     media_fumar = int(Fumar / 15)
     if opcao_2 == 1:
         media = int((Musica + Artes + Medicina + Literacia) / 4)
@@ -378,7 +377,7 @@ def vida_adolecente_masculino_hetero():
         felicidade -= media_fumar
         ajuda_felicidade()
         pontuacao()
-        game_over()        
+        game_over()
     elif opcao_2 == 5:
         media = int((Futebol + Musica + Artes + Literacia) / 4)
         felicidade -= media
@@ -387,7 +386,7 @@ def vida_adolecente_masculino_hetero():
         pontuacao()
         game_over()
     opcao_6 = str(input('Tentar fazer uma novo amigo? ')) #? Mudar depois para brincar , ler com amigos e etc
-    chance_5 = rd.randint(0, 100)
+    chance_5 = randint(0, 100)
     if opcao_6 == "sim":
         if chance_5 > 50:
             print('Voce fez uma nova amigo : ')  #? Mudar depois para brincar , ler com amigos e etc
@@ -418,11 +417,11 @@ def vida_adulto_masculino_hetero():
     global carro_caro
     global nv_chance_casar
     global nv_chance_carro
-    moedas = rd.randint(0, 33)
+    moedas = randint(0, 33)
     dinheiro = moedas
-    comida = rd.randint(0, 5)
-    fumar = rd.randint(0, 1)
-    ginasio = rd.randint(0, 1)
+    comida = randint(0, 5)
+    fumar = randint(0, 1)
+    ginasio = randint(0, 1)
     felicidade = felicidade - comida
     felicidade = felicidade -  fumar
     felicidade = felicidade - ginasio
@@ -478,17 +477,20 @@ def vida_adulto_masculino_hetero():
         print('a')
     print('ACABA FASE ADULTO MASCULINO')
 
-os.system('cls')
+system('cls')
 comecar = str(input('Start? '))
 if comecar == "sim" or comecar == "Sim" or comecar == "SIM":
     print('A começar')
     vida_bebe()
     if vida_b == 1:
         vida_crianca()
+        sleep(2)
         if sexopg == 0 and vida_b == 1:
             vida_adolecente_masculino_hetero()
+            sleep(2)
             if vida_adc_r == 1:
                 vida_adulto_masculino_hetero()
+                sleep(2)
 
         else:
             print('\033[31m' + 'Erro Critico' + '\033[0m')
