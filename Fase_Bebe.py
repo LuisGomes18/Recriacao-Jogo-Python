@@ -26,7 +26,7 @@ def Fase_Bebe():
     print('Esta parte do código é feito por forma random já que não existe formato visual')
     sleep(2)
     Biberoes = randint(1, 9)
-    dados["dados"][0]["Felicidade"] + int(Biberoes / 6)
+    dados["dados"][0]["Felicidade"] += int(Biberoes / 6)
     print(f'Voçe consegiu "apanhar": {Biberoes} biberões')
     Pontuacao()
 
