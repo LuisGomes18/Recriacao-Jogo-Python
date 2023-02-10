@@ -4,9 +4,14 @@ from Extras import *
 from random import randint
 from time import sleep
 from json import load
+from sys import exit as ext
 
-with open("Dados.json", encoding='utf-8') as dados_jg:
-    dados = load(dados_jg)
+try:
+    with open("Dados.json", encoding='utf-8') as dados_jg:
+        dados = load(dados_jg)
+except FileNotFoundError:
+    print("Erro: Arquivo Dados.json não encontrado.")
+    ext()
 
 def Fase_Bebe():
     global Felicidade
@@ -20,13 +25,15 @@ def Fase_Bebe():
     elif Ir_com_pais.lower() not in ['nao', 'não']:
         print('Voçe não foi com seu pais')
         dados["dados"][0]["Felicidade"] += 0
+    else:
+        print('Resposta incorreta')
     Pontuacao()
 
     sleep(5)
     print('Esta parte do código é feito por forma random já que não existe formato visual')
     sleep(2)
     Biberoes = randint(1, 9)
-    dados["dados"][0]["Felicidade"] += int(Biberoes / 6)
+    dados["dados"][0]["Felicidade"] = dados["dados"][0]["Felicidade"] + int(Biberoes / 6)
     print(f'Voçe consegiu "apanhar": {Biberoes} biberões')
     Pontuacao()
 
@@ -38,6 +45,8 @@ def Fase_Bebe():
     elif Ir_no_escorrega.lower() not in ['nao', 'não']:
         print('Voçe não foi no escorrega')
         dados["dados"][0]["Felicidade"] += 0
+    else:
+        print('Resposta incorreta')
     Pontuacao()
     dados["dados"][0]["Final_fase_bebe"] = 1
 

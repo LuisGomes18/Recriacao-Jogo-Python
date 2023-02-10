@@ -1,3 +1,7 @@
+```
+
+```
+
 # Política de segurança
 
 ## Versões suportadas
@@ -20,3 +24,4 @@ Use esta seção para informar às pessoas como relatar uma vulnerabilidade.
 Diga a eles para onde ir, com que frequência eles podem esperar obter uma atualização sobre um
 vulnerabilidade relatada, o que esperar se a vulnerabilidade for aceita ou
 recusado, etc
+

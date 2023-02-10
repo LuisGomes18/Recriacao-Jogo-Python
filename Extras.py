@@ -2,9 +2,14 @@
 # -*- coding: utf-8 -*-
 from main import *
 from json import load
+from sys import exit as ext
 
-with open("Dados.json", encoding='utf-8') as dados_jg:
-    dados = load(dados_jg)
+try:
+    with open("Dados.json", encoding='utf-8') as dados_jg:
+        dados = load(dados_jg)
+except FileNotFoundError:
+    print("Erro: Arquivo Dados.json não encontrado.")
+    ext()
 
 def Escolher_sexo_personagem():
     global Sexo_Personagem
