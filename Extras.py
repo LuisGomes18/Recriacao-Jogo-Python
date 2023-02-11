@@ -7,8 +7,8 @@ from sys import exit as ext
 try:
     with open("Dados.json", encoding='utf-8') as dados_jg:
         dados = load(dados_jg)
-except FileNotFoundError:
-    print("Erro: Arquivo Dados.json não encontrado.")
+except FileNotFoundError as e:
+    print(f'Erro: Arquivo Dados.json não encontrado')
     ext()
 
 def Escolher_sexo_personagem():

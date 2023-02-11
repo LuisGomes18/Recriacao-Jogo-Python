@@ -49,5 +49,3 @@ def Fase_Bebe():
         print('Resposta incorreta')
     Pontuacao()
     dados["dados"][0]["Final_fase_bebe"] = 1
-
-Fase_Bebe()
