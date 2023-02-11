@@ -10,8 +10,8 @@ import os
 try:
     with open("Dados.json", encoding='utf-8') as dados_jg:
         dados = load(dados_jg)
-except FileNotFoundError as e:
-    print(f'Erro: Arquivo Dados.json não encontrado')
+except FileNotFoundError:
+    print('Erro: Arquivo Dados.json não encontrado')
     ext()
 
 def Fase_Crianca():
@@ -34,6 +34,7 @@ def Fase_Crianca():
 
     
     media = (lampadas + pintar + bebes) // 3
-    print(media)
+    dados["dados"][0]["Felicidade"] = dados["dados"][0]["Felicidade"] + media
+    Pontuacao()
 
 Fase_Crianca()

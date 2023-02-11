@@ -10,11 +10,10 @@ try:
     with open("Dados.json", encoding='utf-8') as dados_jg:
         dados = load(dados_jg)
 except FileNotFoundError:
-    print("Erro: Arquivo Dados.json não encontrado.")
+    print('Erro: Arquivo Dados.json não encontrado')
     ext()
 
 def Fase_Bebe():
-    global Felicidade
     Escolher_sexo_personagem()
 
     sleep(5)
@@ -33,7 +32,7 @@ def Fase_Bebe():
     print('Esta parte do código é feito por forma random já que não existe formato visual')
     sleep(2)
     Biberoes = randint(1, 9)
-    dados["dados"][0]["Felicidade"] = dados["dados"][0]["Felicidade"] + int(Biberoes / 6)
+    dados["dados"][0]["Felicidade"] = dados["dados"][0]["Felicidade"] + Biberoes // 6
     print(f'Voçe consegiu "apanhar": {Biberoes} biberões')
     Pontuacao()
 
