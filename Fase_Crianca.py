@@ -15,6 +15,7 @@ except FileNotFoundError:
     ext()
 
 def Fase_Crianca():
+    global felicidade_a_mais
     lampadas = randint(1, 9)
     pintar = randint(1, 3)
     bebes = randint(1, 3)
@@ -35,6 +36,7 @@ def Fase_Crianca():
     
     media = (lampadas + pintar + bebes) // 3
     dados["dados"][0]["Felicidade"] = dados["dados"][0]["Felicidade"] + media
+    felicidade_a_mais = dados["dados"][0]["Felicidade"]
     Pontuacao()
 
 Fase_Crianca()
