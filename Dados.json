@@ -1,11 +1,6 @@
 {
-    "dados": [
-        {
-            "Felicidade": 6,
-            "Felicidade_Maxima": 12,
-            "Vida": 12,
-            "Sexo_Personagem": 0,
-            "Final_fase_bebe": 0
-        }
-    ]
+    "vida": 12,
+    "felicidade": 6,
+    "vida_inicial": 12,
+    "felicidade_inicial": 6
 }
