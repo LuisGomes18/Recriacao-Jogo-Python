@@ -2,5 +2,6 @@
     "vida": 12,
     "felicidade": 6,
     "vida_inicial": 12,
-    "felicidade_inicial": 6
+    "felicidade_inicial": 6,
+    "sexo": "0"
 }
