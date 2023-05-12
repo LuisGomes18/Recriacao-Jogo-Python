@@ -1,7 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from main import *
-from Fase_Crianca import *
 from json import load
 from sys import exit as ext
 
@@ -19,11 +17,3 @@ def Escolher_sexo_personagem():
 
 def Pontuacao():
     print('\033[33m' + f'\n\nFelicidade: {dados["dados"][0]["Felicidade"]}\nVida: {dados["dados"][0]["Vida"]}\n\n' + '\033[0m')
-
-def Felicidade_excesso(): #TMP
-    '''if felicidade > 15:
-                resto_amizade_1 = felicidade - 15
-                felicidade = felicidade - resto_amizade_1
-                pontuacao()'''
-    if dados["dados"][0]["Felicidade"] >= 15:
-        felicidade_a_mais - [dados]
