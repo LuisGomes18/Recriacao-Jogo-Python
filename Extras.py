@@ -8,6 +8,12 @@ amarelo = '\033[33m'
 cor_original = '\033[0;0m'
 negrito = '\033[1m'
 
+def Salvar_Dados():
+    dados["felicidade"] = felicidade
+    dados["vida"] = vida
+    with open("Dados.json", "w") as dt:
+            dump(dados, dt)
+
 def Sexo():
     sexo = str(input('''Insira o sexo da personagem (F - Feminino, M - Masculino, NB - Não Binario)
 -> '''))
@@ -18,8 +24,7 @@ def Sexo():
         dados["sexo"] = sexo
     elif sexo == "nb":
         dados["sexo"] = sexo
-    with open("Dados.json", "w") as dt:
-            dump(dados, dt)
+    Salvar_Dados()
 
 def Pontuacao():
     with open("Dados.json", encoding='utf-8') as dt:
