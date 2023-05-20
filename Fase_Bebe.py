@@ -25,9 +25,7 @@ def Fase_Bebe():
     if opcao_1.lower() == "s":
         print('Voce foi com seu pais')
         felicidade += 2  # ! TMP
-        print(felicidade)
         dados["felicidade"] = felicidade
-        print(dados["felicidade"])
         with open("Dados.json", "w") as dt:
             dump(dados, dt)
     elif opcao_1.lower() == "n":
@@ -35,22 +33,29 @@ def Fase_Bebe():
     else:
         print('Opção invalida')
     sleep(2)
+    with open("Dados.json", "w") as dt:
+        dump(dados, dt)
 
     biberoes_apanhados = randint(0, 6)
     dados["biberoes_apanhados"] = biberoes_apanhados
     felicidade = biberoes_apanhados / 6  # ** Verificar este (6)
-    Salvar_Dados()
+    with open("Dados.json", "w") as dt:
+        dump(dados, dt)
     print('\n')
 
     opcao_2 = str(input('Quer andar de boloiço? (S/N)\n'))
     if opcao_2.lower() == "s":
         print('Voce foi com no boloiço')
         felicidade += 1  # ? 1 Mais ou menos
-        Salvar_Dados()
+        with open("Dados.json", "w") as dt:
+            dump(dados, dt)
     elif opcao_2.lower() == "n":
         print('Voce não foi com no baloiço')
     else:
         print('Opção invalida')
+    
+    with open("Dados.json", "w") as dt:
+        dump(dados, dt)
     Pontuacao()
     sleep(2)
 
