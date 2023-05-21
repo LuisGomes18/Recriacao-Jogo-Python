@@ -20,7 +20,6 @@ print(felicidade)
 
 def Fase_Bebe():
     global felicidade
-    Sexo()
     sexo_atual = Sexo()
     dados["sexo"] = sexo_atual
     with open("Dados.json", "w") as dt:

@@ -24,15 +24,11 @@ def Salvar_Dados():
 
 
 def Sexo():
+    global sexo
     sexo = str(input('''Insira o sexo da personagem (F - Feminino, M - Masculino, NB - Não Binario)
 -> '''))
     sexo = sexo.lower()
-    if sexo == "f":
-        dados["sexo"] = sexo
-    elif sexo == "m":
-        dados["sexo"] = sexo
-    elif sexo == "nb":
-        dados["sexo"] = sexo
+    return sexo
 
 
 def Pontuacao():
