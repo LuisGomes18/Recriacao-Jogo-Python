@@ -8,7 +8,7 @@ from random import randint
 from json import dump
 
 # 0 - nao debug // 1 - para debug 
-DEBUG = 0
+DEBUG = 1
 Json_Inicio()
 dados_js = Json_Inicio()
 dados = dados_js
@@ -64,3 +64,5 @@ if DEBUG == 1:
     Fase_Bebe()
 elif DEBUG == 0:
     print(' ')
+else:
+    print('Numero Invalido')
