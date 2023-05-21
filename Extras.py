@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from Erros import Json_Inicio
 from json import load
 from json import dump
@@ -32,6 +31,6 @@ def Sexo():
 
 
 def Pontuacao():
-    with open("Dados.json", encoding='utf-8') as dt:
-        dados = load(dt)
+    dados_js = Json_Inicio()
+    dados = dados_js
     print(f'\n\n{amarelo}{negrito}Pntuação:{cor_original} Vida: {dados["vida"]}\n Felicidade: {dados["felicidade"]}\n\n')

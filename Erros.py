@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-
 from json import load
 from json import dump
 import os
+
 
 nome_arquivo = "Dados.json"
 dados_json = {
