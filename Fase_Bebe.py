@@ -1,3 +1,5 @@
+from Erros import Json_Inicio
+
 from json import load
 from Extras import Salvar_Dados
 from Extras import Sexo
@@ -6,15 +8,13 @@ from time import sleep
 from random import randint
 from json import dump
 
-
-DEBUG = 1
-try:
-    with open("Dados.json", encoding='utf-8') as dt:
-        dados = load(dt)
-except FileNotFoundError:
-    exit('Ficheiro não encontrado ou corrompido')  # ! Usar Anti-cheat para não poder existir este erro
-felicidade = dados["felicidade_inicial"]
-
+# 0 - nao debug // 1 - para debug 
+DEBUG = 0
+Json_Inicio()
+dados_js = Json_Inicio()
+dados = dados_js
+felicidade = dados["felicidade"]
+print(felicidade)
 
 def Fase_Bebe():
     global felicidade

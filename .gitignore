@@ -161,4 +161,5 @@ cython_debug/
 
 *.txt
 /.idea
-Anti-Cheat.py
+.Anti-Cheat.py
+Anti_Cheat.py

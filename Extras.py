@@ -1,8 +1,13 @@
+from Erros import Json_Inicio
+
 from json import load
 from json import dump
 
-with open("Dados.json", encoding='utf-8') as dt:
-    dados = load(dt)
+
+Json_Inicio()
+dados_js = Json_Inicio()
+dados = dados_js
+
 amarelo = '\033[33m'
 cor_original = '\033[0;0m'
 negrito = '\033[1m'
