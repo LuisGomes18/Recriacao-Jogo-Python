@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from Erros import Json_Inicio
 from json import load
 from Extras import Salvar_Dados
@@ -19,6 +21,8 @@ print(felicidade)
 def Fase_Bebe():
     global felicidade
     Sexo()
+    sexo_atual = Sexo()
+    dados["sexo"] = sexo_atual
     with open("Dados.json", "w") as dt:
         dump(dados, dt)
     opcao_1 = str(input('\nQuer ir com os pais? (S/N)\n'))

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from Erros import Json_Inicio
 from json import load
 from json import dump
@@ -31,13 +33,9 @@ def Sexo():
         dados["sexo"] = sexo
     elif sexo == "nb":
         dados["sexo"] = sexo
-    Salvar_Dados()
 
 
 def Pontuacao():
     with open("Dados.json", encoding='utf-8') as dt:
         dados = load(dt)
-    print(f'''\n\n{amarelo}{negrito}Pntuação:{cor_original}
-Vida: {dados["vida"]}
-Felicidade: {dados["felicidade"]}
-\n\n''')
+    print(f'\n\n{amarelo}{negrito}Pntuação:{cor_original} Vida: {dados["vida"]}\n Felicidade: {dados["felicidade"]}\n\n')

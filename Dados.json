@@ -1,8 +1,8 @@
 {
     "vida": 12,
-    "felicidade": 6,
+    "felicidade": 8,
     "vida_inicial": 12,
-    "felicidade_inicial": 6,
+    "felicidade_inicial": 8,
     "sexo": "0",
-    "biberoes_apanhados": 0
-}
+    "biberoes_apanhados": 4
+  }
