@@ -1,5 +1,4 @@
 from Erros import Json_Inicio
-
 from json import load
 from json import dump
 

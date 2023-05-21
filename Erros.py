@@ -2,16 +2,16 @@ from json import load
 from json import dump
 import os
 
-
-nome_arquivo = "Dados.json" 
-dados_json =  {
+nome_arquivo = "Dados.json"
+dados_json = {
     "vida": 12,
     "felicidade": 6,
     "vida_inicial": 12,
-    "felicidade_inicial": 6, # Anti-Cheat
+    "felicidade_inicial": 6,  # Anti-Cheat
     "sexo": "ND",
     "biberoes_apanhados": 0
 }
+
 
 def Json_Inicio():
     global dados

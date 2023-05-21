@@ -1,5 +1,4 @@
 from Erros import Json_Inicio
-
 from json import load
 from Extras import Salvar_Dados
 from Extras import Sexo
@@ -15,6 +14,7 @@ dados_js = Json_Inicio()
 dados = dados_js
 felicidade = dados["felicidade"]
 print(felicidade)
+
 
 def Fase_Bebe():
     global felicidade
@@ -53,7 +53,7 @@ def Fase_Bebe():
         print('Voce não foi com no baloiço')
     else:
         print('Opção invalida')
-    
+
     with open("Dados.json", "w") as dt:
         dump(dados, dt)
     Pontuacao()
