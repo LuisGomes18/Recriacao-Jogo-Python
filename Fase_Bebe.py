@@ -9,7 +9,7 @@ from random import randint
 from json import dump
 
 
-DEBUG = 1 # 0 - nao debug // 1 - para debug 
+DEBUG = 1 #* 0 - nao debug // 1 - para debug 
 dados_js = Json_Inicio()
 dados = dados_js
 felicidade = dados["felicidade"]
@@ -17,10 +17,11 @@ felicidade = dados["felicidade"]
 
 def Fase_Bebe():
     global felicidade
-    sexo_atual = Sexo()
-    dados["sexo"] = sexo_atual
+    Sexo()
+
     with open("Dados.json", "w") as dt:
         dump(dados, dt)
+
     opcao_1 = str(input('\nQuer ir com os pais? (S/N)\n'))
     if opcao_1.lower() == "s":
         print('Voce foi com seu pais')
@@ -33,6 +34,7 @@ def Fase_Bebe():
     else:
         print('Opção invalida')
     sleep(2)
+
     with open("Dados.json", "w") as dt:
         dump(dados, dt)
 
@@ -53,7 +55,6 @@ def Fase_Bebe():
     if opcao_2.lower() == "s":
         print('Voce foi com no boloiço')
         felicidade += 1  # ? 1 Mais ou menos
-        dados["felicidade"] = felicidade
         with open("Dados.json", "w") as dt:
             dump(dados, dt)
     elif opcao_2.lower() == "n":

@@ -27,6 +27,7 @@ def Sexo():
     sexo = str(input('''Insira o sexo da personagem (F - Feminino, M - Masculino, NB - Não Binario)
 -> '''))
     sexo = sexo.lower()
+    dados["sexo"] = sexo
     return sexo
 
 
