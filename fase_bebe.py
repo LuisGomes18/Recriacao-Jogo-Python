@@ -1,20 +1,19 @@
 '''
-Modulo para manusear ficheiros .json
+Modulo para manusear ficheiros .json (l.6 e 7)
+Modulo para fazer pausas entre codigos (l.8)
+Modulo para randomizar numeros (l.9)
 '''
 from json import loads
 from json import dump
 from time import sleep
+from random import randint
 
-
-with open("Data/Dados.json", 'r', encoding='utf-8') as dados:
-    conteudo_json = dados.read()
-    dados_player = loads(conteudo_json)
 
 DEBUG = 1
-felicidade_atual = dados_player['felicidade']
-vida = dados_player['vida']
+FASE_BEBE_TERMINADA = 'false'
 
-def fase_bebe():
+
+def fase_bebe(felicidade_atual):
     ''' Definição da fase de bebê '''
 
     opcao_sexo = str(input('''Insira o sexo da personagem
@@ -24,26 +23,64 @@ def fase_bebe():
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
 
-    opcao_1 = str(input('Quer ir com seus pias (s/n)\n-> '))
+    opcao_1 = str(input('\nQuer ir com seus pais (s/n)\n-> '))
     # pylint: disable=W0621
     if opcao_1.lower() == 's':
         felicidade_atual += 2
+        dados_player['felicidade'] = felicidade_atual
         with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
             dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-        print('Voce foi com seus pais')
+        print('Você foi com seus pais')
     elif opcao_1.lower() == 'n':
-        print('Voce nao foi com seus pais')
+        print('Você não foi com seus pais')
     else:
-        print('Opção invalida')
+        print('Opção inválida')
 
     sleep(1)
-    print('''\nAgora e parte em que o player deveria apanhar os biberoes
-mas como nao tem interface grafica sera feito randomizado\n''')
+    print('''\nAgora é a parte em que o jogador deveria pegar os biberões,
+mas como não há interface gráfica, será feito de forma aleatória.\n''')
     sleep(1)
 
-    opcao_2 = str('Quer ir no baloiço\n-> ')
+    biberoes = 0
+    if opcao_1.lower() == "n":
+        biberoes = randint(4, 9)
+    elif opcao_1.lower() == "s":
+        biberoes = randint(5, 9)
+    dados_player['biberoes_apanhados'] = biberoes
+    print(f'\nVocê pegou {biberoes} biberões')
+    felicidade_atual += int(biberoes / 3) #* TMP
+    dados_player['felicidade'] = felicidade_atual
+    with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
+        dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
+
+    opcao_2 = str(input('\nQuer ir no baloiço (s/n)\n-> '))
+    if opcao_2.lower() == "n":
+        print('Você não foi no baloiço')
+    elif opcao_2.lower() == "s":
+        print('Você foi no baloiço')
+        felicidade_atual += 1
+        dados_player['felicidade'] = felicidade_atual
+        with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
+            dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
+    else:
+        print('Opção inválida')
+
+    FASE_BEBE_TERMINADA = 'true'  # pylint: disable=C0103
+    dados_player['fase_bebe_terminada'] = FASE_BEBE_TERMINADA
+    with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
+        dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
+
+    return felicidade_atual
+
 
 if DEBUG == 1:
-    fase_bebe()
-elif DEBUG != 0:
-    print('Número introduzido incorreto')
+    with open("Data/Dados.json", 'r', encoding='utf-8') as dados:
+        conteudo_json = dados.read()
+        dados_player = loads(conteudo_json)
+    felicidade_atual = dados_player['felicidade']
+    vida = dados_player['vida']
+    felicidade_atual = fase_bebe(felicidade_atual)
+elif DEBUG == 0:
+    pass
+else:
+    print('Valor Incorreto')
