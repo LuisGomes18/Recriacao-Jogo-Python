@@ -7,6 +7,7 @@ from json import loads
 from json import dump
 from time import sleep
 from random import randint
+from extras import pontuacao
 
 
 DEBUG = 1
@@ -35,6 +36,7 @@ def fase_bebe(felicidade_atual):
         print('Você não foi com seus pais')
     else:
         print('Opção inválida')
+    pontuacao(felicidade_atual, vida)
 
     sleep(1)
     print('''\nAgora é a parte em que o jogador deveria pegar os biberões,
@@ -52,6 +54,7 @@ mas como não há interface gráfica, será feito de forma aleatória.\n''')
     dados_player['felicidade'] = felicidade_atual
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
+    pontuacao(felicidade_atual, vida)
 
     opcao_2 = str(input('\nQuer ir no baloiço (s/n)\n-> '))
     if opcao_2.lower() == "n":
@@ -64,6 +67,7 @@ mas como não há interface gráfica, será feito de forma aleatória.\n''')
             dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
     else:
         print('Opção inválida')
+    pontuacao(felicidade_atual, vida)
 
     FASE_BEBE_TERMINADA = 'true'  # pylint: disable=C0103
     dados_player['fase_bebe_terminada'] = FASE_BEBE_TERMINADA
