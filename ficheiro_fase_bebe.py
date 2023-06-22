@@ -10,7 +10,7 @@ from random import randint
 from extras import pontuacao
 
 
-DEBUG = 1
+DEBUG = 0
 FASE_BEBE_TERMINADA = 'false'
 
 
