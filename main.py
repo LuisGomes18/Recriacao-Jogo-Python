@@ -12,7 +12,9 @@ with open("Data/Dados.json", 'r', encoding='utf-8') as dados:
 felicidade_atual = dados_player['felicidade']
 vida = dados_player['vida']
 
+felicidade_atual = fase_bebe(felicidade_atual)
+
 if dados_player['fase_bebe_terminada'] == "true":
-    felicidade_atual = fase_bebe(felicidade_atual)
+    pass
 elif dados_player['fase_bebe_terminada'] == "false":
     pass
