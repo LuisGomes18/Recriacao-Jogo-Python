@@ -5,5 +5,8 @@
     "felicidade_inicial": 8,
     "sexo": "ND",
     "biberoes_apanhados": 0,
-    "fase_bebe_terminada": "false"
+    "fase_bebe_terminada": "false",
+    "lampada": 0,
+    "pintura": 0,
+    "bebes": 0
 }
