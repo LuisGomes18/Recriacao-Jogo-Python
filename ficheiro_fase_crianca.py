@@ -7,7 +7,7 @@ from random import randint
 from extras import pontuacao
 
 
-DEBUG = 1
+DEBUG = 0
 
 def fase_crianca(vida, felicidade_atual):
     ''' Definicao da fase de criança '''

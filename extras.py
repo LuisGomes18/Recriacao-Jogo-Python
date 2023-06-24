@@ -1,3 +1,6 @@
+'''
+Modulo para manusear ficheiros .json (l.4)
+'''
 from json import loads
 
 AMARELO = '\033[33m'
