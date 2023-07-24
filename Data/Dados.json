@@ -8,10 +8,11 @@
     "lampada": 0,
     "pintura": 0,
     "bebes": 0,
-    "fase_bebe_terminada": "false",
+    "fase_bebe_terminada": false,
     "atividade_escolhida": 0,
     "artes":0,
     "medicina": 0,
     "musica": 0,
-    "desporto": 0
+    "desporto": 0,
+    "fumar": 0
 }
