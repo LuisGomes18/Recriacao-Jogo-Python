@@ -15,5 +15,6 @@
     "medicina": 0,
     "musica": 0,
     "desporto": 0,
-    "fumar": 0
+    "fumar": 0,
+    "fase_adolecente_terminada": false
 }

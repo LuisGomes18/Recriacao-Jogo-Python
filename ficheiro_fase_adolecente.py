@@ -14,7 +14,7 @@ from random import randint
 from extras import pontuacao
 
 
-FASE_CRIANCA_TERMINADA = False
+FASE_ADOLECENTE_TERMINADA = False
 DEBUG = 1
 
 def fase_adolecente(vida, felicidade_atual):
@@ -70,8 +70,8 @@ Desporto: {desporto}
     pontuacao(felicidade_atual, vida)
 
     # pylint: disable=invalid-name
-    FASE_CRIANCA_TERMINADA = True
-    dados_player['fase_crianca_terminada'] = FASE_CRIANCA_TERMINADA
+    FASE_ADOLECENTE_TERMINADA = True
+    dados_player['fase_adolecente_terminada'] = FASE_ADOLECENTE_TERMINADA
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
 
