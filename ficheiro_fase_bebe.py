@@ -20,7 +20,7 @@ from extras import pontuacao
 
 
 DEBUG = 0
-FASE_BEBE_TERMINADA = 'false'
+FASE_BEBE_TERMINADA = False
 
 
 def fase_bebe(felicidade_atual):
@@ -59,7 +59,7 @@ mas como não há interface gráfica, será feito de forma aleatória.\n''')
         biberoes = randint(5, 9)
     dados_player['biberoes_apanhados'] = biberoes
     print(f'\nVocê pegou {biberoes} biberões')
-    felicidade_atual += int(biberoes / 3) #* TMP
+    felicidade_atual += int(biberoes / 3)
     dados_player['felicidade'] = felicidade_atual
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
@@ -78,7 +78,8 @@ mas como não há interface gráfica, será feito de forma aleatória.\n''')
         print('Opção inválida')
     pontuacao(felicidade_atual, vida)
 
-    FASE_BEBE_TERMINADA = 'true'  # pylint: disable=C0103
+    # pylint: disable=invalid-name
+    FASE_BEBE_TERMINADA = True
     dados_player['fase_bebe_terminada'] = FASE_BEBE_TERMINADA
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
