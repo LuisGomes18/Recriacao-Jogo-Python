@@ -15,8 +15,8 @@
 1. **Clonar o Repositório:** Clone este repositório para o seu sistema local usando o seguinte comando:
 
 ```bash
-git clone https://github.com/seu-usuario/a-vida-e-um-jogo.git
-cd a-vida-e-um-jogo
+git clone https://github.com/LuisGomes18/Recriacao-Jogo-Python.git
+cd Recriacao-Jogo-Python
 ```
 
 2. **Executar o Jogo:** Abra um terminal na pasta do jogo e execute o seguinte comando:
