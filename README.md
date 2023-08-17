@@ -46,5 +46,7 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE), o que significa que
 Divirta-se jogando "A Vida é um Jogo"! Se tiver alguma dúvida, sugestão ou problema, sinta-se à vontade para abrir uma issue ou entrar em contato conosco.
 
 **Autor:** Luís Gomes
+
 **Contato:** luiscogomes@proton.me
+
 **Repositório:** [https://github.com/LuisGomes18/Recriacao-Jogo-Python/](https://github.com/LuisGomes18/Recriacao-Jogo-Python/)
