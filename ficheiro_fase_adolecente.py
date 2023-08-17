@@ -26,8 +26,8 @@ def fase_adolecente(vida, felicidade_atual):
 3) Musica
 4) Desporto
 --> '''))
-    while atividades != [1,2,3,4]:
-        atividades = int(input('''1) Artes
+    while atividades not in [1,2,3,4]:
+        atividades = int(input('''\n1) Artes
 2) Medicina
 3) Musica
 4) Desporto
@@ -49,28 +49,28 @@ def fase_adolecente(vida, felicidade_atual):
 
     if atividades == 1 and artes == 9:
         print(f'{VERDE}Artes: {artes}{ORIGINAL}')
-    elif atividades == 1 and artes != 9:
+    elif artes != 9:
         print(f'Artes: {artes}')
     else:
         print('Valor incorreto')
 
     if atividades == 2 and medicina == 9:
         print(f'{VERDE}Medicina: {medicina}{ORIGINAL}')
-    elif atividades == 2 and medicina != 9:
+    elif medicina != 9:
         print(f'Medicina: {medicina}')
     else:
         print('Valor incorreto')
 
     if atividades == 3 and musica == 9:
         print(f'{VERDE}Musica: {musica}{ORIGINAL}')
-    elif atividades == 3 and musica == 9:
+    elif musica != 9:
         print(f'Musica: {musica}')
     else:
         print('Valor incorreto')
 
     if atividades == 4 and desporto == 9:
         print(f'{VERDE}Desporto: {desporto}{ORIGINAL}')
-    elif atividades == 4 and desporto != 9:
+    elif desporto != 9:
         print(f'Desporto: {desporto}')
     else:
         print('Valor incorreto')
@@ -85,7 +85,7 @@ def fase_adolecente(vida, felicidade_atual):
         felicidade_atual += int(desporto / 2)
     dados_player['felicidade'] = felicidade_atual
 
-    with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
+    with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
     pontuacao(felicidade_atual, vida)
 
