@@ -16,5 +16,6 @@
     "musica": 0,
     "desporto": 0,
     "fumar": 0,
+    "chance_amigo": [],
     "fase_adolecente_terminada": false
 }

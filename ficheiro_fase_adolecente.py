@@ -43,7 +43,7 @@ Artes: {artes}
 Medicina: {medicina}
 Música: {musica}
 Desporto: {desporto}    
-''')
+''') # Adicionar cor com atividade
 
     if atividades == 1:
         felicidade_atual += int(artes / 2)
@@ -59,15 +59,32 @@ Desporto: {desporto}
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
     pontuacao(felicidade_atual, vida)
 
-    fumar = randint(3, 5)
-    felicidade_atual -= int(fumar / 2)
+    chances_amizade = []
+    chance_amigo = randint(0, 100)
+    if chance_amigo < 50:
+        print('Você fez um novo amigo')
+        felicidade_atual += 2
+    else:
+        print('Ele não quis ser teu amigo')
+    chances_amizade.append(chance_amigo)
 
-    dados_player['felicidade'] = felicidade_atual
-    dados_player['fumar'] = fumar
+    chance_amigo_2 = randint(0, 100)
+    if chance_amigo_2 < 50:
+        print('Você fez um novo amigo')
+        felicidade_atual += 2
+    else:
+        print('Ele não quis ser teu amigo')
+    chances_amizade.append(chance_amigo_2)
 
-    with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
-        dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    chance_amigo_3 = randint(0, 100)
+    if chance_amigo_3 < 50:
+        print('Você fez um novo amigo')
+        felicidade_atual += 2
+    else:
+        print('Ele não quis ser teu amigo')
+    chances_amizade.append(chance_amigo_3)
+
+    dados_player['chance_amigo'] = chances_amizade
 
     # pylint: disable=invalid-name
     FASE_ADOLECENTE_TERMINADA = True
