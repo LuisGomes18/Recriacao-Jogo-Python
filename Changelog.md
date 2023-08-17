@@ -1,26 +1,25 @@
-<h2>Changelog</h2>
-<h4>19/11/2022</h4>
-<ul>
-    <li>Fase Vida Adolecente Hetero acabada</li>
-    <ul>
-        <li>Hobies</li>
-        <li>A infulencia na felicida da personagem </li>
-        <li>Mais amizades</li>
-    </ul>
-</ul>
-<h4>20/11/2022</h4>
-<ul>
-    <li>Correção parte das "Amizades"</li>
-    <li>Inicio da criação da Fase Vida Adulto Hetero</li>
-    <li>Correção na fase Vida Adolecente Hetero</li>
-    <ul>
-        <li>Adição de chance de ter amizades toxicas</li>
-        <li>Adiçãoi de mais acontecimentos durante a fase</li>
-        <li>Ajustes no ganho de felicidade</li>
-    </ul>
-    <li>Finalmente a adição da comunidade LGBTQIAPN+🏳️‍🌈</li>
-</ul>
-<h4>04/02/2022</h4>
-<ul>
-    <li>Remodelação no código</li>
-</u>
+## Changelog
+
+### 19/11/2022
+- Fase Vida Adolescente Hetero acabada
+  - Hobies
+  - A influência na felicidade da personagem
+  - Mais amizades
+
+### 20/11/2022
+- Correção na parte das "Amizades"
+- Início da criação da Fase Vida Adulta Hetero
+- Correção na fase Vida Adolescente Hetero
+  - Adição de chance de ter amizades tóxicas
+  - Adição de mais acontecimentos durante a fase
+  - Ajustes no ganho de felicidade
+- Finalmente a adição da comunidade LGBTQIAPN+🏳️‍🌈
+
+### 04/02/2022
+- Remodelação no código
+
+### 17/07/2023
+- Adição das fases:
+  - Bebe
+  - Criança
+  - Adolecente
