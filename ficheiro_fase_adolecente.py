@@ -16,6 +16,8 @@ from extras import pontuacao
 
 FASE_ADOLECENTE_TERMINADA = False
 DEBUG = 1
+VERDE = '\033[32m'
+ORIGINAL= '\033[0;0m'
 
 def fase_adolecente(vida, felicidade_atual):
     ''' Definicao da fase de adolecente '''
@@ -24,6 +26,13 @@ def fase_adolecente(vida, felicidade_atual):
 3) Musica
 4) Desporto
 --> '''))
+    while atividades != [1,2,3,4]:
+        atividades = int(input('''1) Artes
+2) Medicina
+3) Musica
+4) Desporto
+--> '''))
+
     dados_player["atividade_escolhida"] = atividades
 
     artes = randint(3, 9)
@@ -38,12 +47,33 @@ def fase_adolecente(vida, felicidade_atual):
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
 
-    print(f'''
-Artes: {artes}
-Medicina: {medicina}
-Música: {musica}
-Desporto: {desporto}    
-''') # Adicionar cor com atividade
+    if atividades == 1 and artes == 9:
+        print(f'{VERDE}Artes: {artes}{ORIGINAL}')
+    elif atividades == 1 and artes != 9:
+        print(f'Artes: {artes}')
+    else:
+        print('Valor incorreto')
+
+    if atividades == 2 and medicina == 9:
+        print(f'{VERDE}Medicina: {medicina}{ORIGINAL}')
+    elif atividades == 2 and medicina != 9:
+        print(f'Medicina: {medicina}')
+    else:
+        print('Valor incorreto')
+
+    if atividades == 3 and musica == 9:
+        print(f'{VERDE}Musica: {musica}{ORIGINAL}')
+    elif atividades == 3 and musica == 9:
+        print(f'Musica: {musica}')
+    else:
+        print('Valor incorreto')
+
+    if atividades == 4 and desporto == 9:
+        print(f'{VERDE}Desporto: {desporto}{ORIGINAL}')
+    elif atividades == 4 and desporto != 9:
+        print(f'Desporto: {desporto}')
+    else:
+        print('Valor incorreto')
 
     if atividades == 1:
         felicidade_atual += int(artes / 2)
