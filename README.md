@@ -1,6 +1,6 @@
 # A Vida é um Jogo (Life is a Game)
 
-<!-- ![Screenshot](screenshot.png) Se você tiver uma screenshot, coloque o link aqui -->
+![Screenshot](assets/foto.jpeg)<!--  Se você tiver uma screenshot, coloque o link aqui -->
 
 ## Descrição
 
