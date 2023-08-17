@@ -1,5 +1,6 @@
 ## Changelog
 
+
 ### 19/11/2022
 - Fase Vida Adolescente Hetero acabada
   - Hobies
