@@ -1,7 +1,10 @@
 '''
-Modulo para manusear ficheiros .json (l.4)
+JSON: Módulo utilizado para lidar com a serialização e desserialização de objetos JSON 
+(JavaScript Object Notation). Ele fornece funções como loads para carregar ficheiros JSON 
+com informações do jogo e dump para salvar as informações do Python em JSON num ficheiro.
 '''
 from json import loads
+from random import randint
 
 AMARELO = '\033[33m'
 ORIGINAL = '\033[0;0m'
@@ -17,3 +20,9 @@ def pontuacao(felicidade_atual, vida):
     '''Mostra a pontuacao'''
     print(AMARELO + f'\nFelicidade: {felicidade_atual}')
     print(f'Vida: {vida}\n' + ORIGINAL)
+
+
+def artes():
+    '''Docytype'''
+    moeda = randint(0, 10)
+    moedas = moeda * 20

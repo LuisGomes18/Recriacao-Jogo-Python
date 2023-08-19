@@ -1,6 +1,7 @@
 {
     "vida": 12,
     "felicidade": 8,
+    "dinheiro": 0,
     "vida_inicial": 12,
     "felicidade_inicial": 8,
     "sexo": "ND",
