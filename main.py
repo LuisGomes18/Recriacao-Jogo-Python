@@ -4,6 +4,7 @@ Modulo importar moduloda fase de bebe (l.6)
 '''
 from json import loads
 from ficheiro_fase_bebe import fase_bebe
+from ficheiro_fase_crianca import fase_crianca
 
 with open("Data/Dados.json", 'r', encoding='utf-8') as dados:
     conteudo_json = dados.read()
@@ -14,7 +15,9 @@ vida = dados_player['vida']
 
 felicidade_atual = fase_bebe(felicidade_atual)
 
-if dados_player['fase_bebe_terminada'] == "true":
-    pass
-elif dados_player['fase_bebe_terminada'] == "false":
-    pass
+if dados_player['fase_bebe_terminada'] is True:
+    fase_crianca(vida, felicidade_atual)
+elif dados_player['fase_bebe_terminada'] is False:
+    exit('Fase Bebe não foi completada a 100%')
+else:
+    exit('Erro ao executar a Fase Criança')

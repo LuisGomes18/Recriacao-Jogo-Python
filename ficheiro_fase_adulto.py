@@ -9,17 +9,17 @@ Random: Módulo utilizado para gerar números pseudoaleatórios.
 Extras: Um módulo personalizado que contém funções, uma delas é pontuacao.
 '''
 from json import loads
-#from json import dump
+from json import dump
 #from extras import pontuacao
+from extras import artes
 
 
 FASE_ADULTO_TERMINADA = False
 DEBUG = 1
 
 
-def fase_adulto(vida, felicidade_atual):
+def fase_adulto(vida, felicidade_atual): # pylint: disable=redefined-outer-name
     ''' Definicao da fase adulta'''
-    print('Oii')
     atividade = dados_player['atividade_escolhida']
     if atividade == 1:
         nivel_atividade = dados_player['artes']
@@ -32,7 +32,14 @@ def fase_adulto(vida, felicidade_atual):
     else:
         print('Valor invalido')
         exit(1)
+
+    with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
+        dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
+
+    if atividade == 1 and nivel_atividade == 9:
+        artes(dados_player, felicidade_atual)
     # Moedas = 1->20$
+
     return vida, felicidade_atual
 
 if DEBUG == 1:
