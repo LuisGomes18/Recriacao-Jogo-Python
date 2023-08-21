@@ -26,7 +26,7 @@ else:
 
 if dados_player['fase_adolecente_terminada'] is True:
     fase_adolecente(dados_player, felicidade_atual, vida)
-    
+
 #! ERRO 29 BAIXO
 # elif dados_player['fase_adolecente_terminada'] is False:
 #    sys.exit('Fase Adolecente não foi completada a 100%')
