@@ -22,7 +22,7 @@ cd Recriacao-Jogo-Python
 2. **Executar o Jogo:** Abra um terminal na pasta do jogo e execute o seguinte comando:
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 3. **Jogar:** Siga as instruções exibidas no terminal para tomar decisões que moldarão a vida do personagem no jogo. 
