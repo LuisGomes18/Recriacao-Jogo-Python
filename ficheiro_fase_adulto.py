@@ -10,8 +10,12 @@ Extras: Um módulo personalizado que contém funções, uma delas é pontuacao.
 '''
 from json import loads
 from json import dump
+import sys
 #from extras import pontuacao
 from extras import artes
+from extras import medicina
+from extras import musica
+from extras import desporto
 
 
 FASE_ADULTO_TERMINADA = False
@@ -31,13 +35,19 @@ def fase_adulto(vida, felicidade_atual): # pylint: disable=redefined-outer-name
         nivel_atividade = dados_player['desporto']
     else:
         print('Valor invalido')
-        exit(1)
+        sys.exit(1)
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
 
     if atividade == 1 and nivel_atividade == 9:
         artes(dados_player, felicidade_atual)
+    elif atividade == 2 and nivel_atividade == 9:
+        medicina(dados_player, felicidade_atual)
+    elif atividade == 3 and nivel_atividade == 9:
+        musica(dados_player, felicidade_atual)
+    elif atividade == 4 and nivel_atividade == 9:
+        desporto(dados_player, felicidade_atual)
     # Moedas = 1->20$
 
     return vida, felicidade_atual
@@ -53,3 +63,4 @@ elif DEBUG == 0:
     pass
 else:
     print('Valor Incorreto')
+    sys.exit(1)

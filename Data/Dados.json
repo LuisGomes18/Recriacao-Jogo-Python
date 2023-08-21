@@ -18,5 +18,8 @@
     "desporto": 0,
     "fumar": 0,
     "chance_amigo": [],
-    "fase_adolecente_terminada": false
+    "fase_adolecente_terminada": false,
+    "comida_adulto": 0,
+    "fumar_adulto": 0,
+    "ginasio_adulto": 0
 }
