@@ -16,6 +16,7 @@ from extras import artes
 from extras import medicina
 from extras import musica
 from extras import desporto
+from extras import escritorio
 
 
 FASE_ADULTO_TERMINADA = False
@@ -40,7 +41,9 @@ def fase_adulto(vida, felicidade_atual): # pylint: disable=redefined-outer-name
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
 
-    if atividade == 1 and nivel_atividade == 9:
+    if nivel_atividade < 9:
+        escritorio(dados_player, felicidade_atual)
+    elif atividade == 1 and nivel_atividade == 9:
         artes(dados_player, felicidade_atual)
     elif atividade == 2 and nivel_atividade == 9:
         medicina(dados_player, felicidade_atual)
