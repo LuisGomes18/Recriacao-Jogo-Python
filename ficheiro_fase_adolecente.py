@@ -19,7 +19,7 @@ DEBUG = 0
 VERDE = '\033[32m'
 ORIGINAL= '\033[0;0m'
 
-def fase_adolecente(vida, felicidade_atual): # pylint: disable=redefined-outer-name
+def fase_adolecente(dados_player, felicidade_atual, vida): # pylint: disable=redefined-outer-name
     ''' Definicao da fase de adolecente '''
     atividades = int(input('''1) Artes
 2) Medicina
@@ -131,7 +131,7 @@ if DEBUG == 1:
         dados_player = loads(conteudo_json)
     felicidade_atual = dados_player['felicidade']
     vida = dados_player['vida']
-    vida, felicidade_atual = fase_adolecente(vida, felicidade_atual)
+    vida, felicidade_atual = fase_adolecente(dados_player, felicidade_atual, vida)
 elif DEBUG == 0:
     pass
 else:

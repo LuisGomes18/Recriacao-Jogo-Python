@@ -15,18 +15,20 @@ with open("Data/Dados.json", 'r', encoding='utf-8') as dados:
 felicidade_atual = dados_player['felicidade']
 vida = dados_player['vida']
 
-fase_bebe(vida, felicidade_atual) # type: ignore
+fase_bebe(dados_player, felicidade_atual, vida) # type: ignore
 
 if dados_player['fase_bebe_terminada'] is True:
-    fase_crianca(vida, felicidade_atual)
+    fase_crianca(dados_player, felicidade_atual, vida)
 elif dados_player['fase_bebe_terminada'] is False:
     sys.exit('Fase Bebe não foi completada a 100%')
 else:
     sys.exit('Erro ao executar a Fase Criança')
 
 if dados_player['fase_adolecente_terminada'] is True:
-    fase_adolecente(vida, felicidade_atual)
-elif dados_player['fase_adolecente_terminada'] is False:
-    sys.exit('Fase Adolecente não foi completada a 100%')
-else:
-    sys.exit('Erro ao executar a Fase Adolecente')
+    fase_adolecente(dados_player, felicidade_atual, vida)
+    
+#! ERRO 29 BAIXO
+# elif dados_player['fase_adolecente_terminada'] is False:
+#    sys.exit('Fase Adolecente não foi completada a 100%')
+# else:
+#    sys.exit('Erro ao executar a Fase Adolecente')

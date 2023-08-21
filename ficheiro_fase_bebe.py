@@ -23,7 +23,7 @@ DEBUG = 0
 FASE_BEBE_TERMINADA = False
 
 
-def fase_bebe(felicidade_atual):
+def fase_bebe(dados_player, felicidade_atual, vida):
     ''' Definição da fase de bebê '''
 
     opcao_sexo = str(input('''Insira o sexo da personagem
@@ -93,7 +93,7 @@ if DEBUG == 1:
         dados_player = loads(conteudo_json)
     felicidade_atual = dados_player['felicidade']
     vida = dados_player['vida']
-    felicidade_atual = fase_bebe(felicidade_atual)
+    felicidade_atual = fase_bebe(dados_player, felicidade_atual, vida)
 elif DEBUG == 0:
     pass
 else:

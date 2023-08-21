@@ -17,7 +17,7 @@ from extras import pontuacao
 FASE_CRIANCA_TERMINADA = False
 DEBUG = 0
 
-def fase_crianca(vida, felicidade_atual):
+def fase_crianca(dados_player, felicidade_atual, vida):
     ''' Definicao da fase de criança '''
     lampada = randint(1, 9)
     pintura = randint(1, 3)
@@ -60,7 +60,7 @@ if DEBUG == 1:
         dados_player = loads(conteudo_json)
     felicidade_atual = dados_player['felicidade']
     vida = dados_player['vida']
-    vida, felicidade_atual = fase_crianca(vida, felicidade_atual)
+    vida, felicidade_atual = fase_crianca(dados_player, felicidade_atual, vida)
 elif DEBUG == 0:
     pass
 else:
