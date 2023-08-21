@@ -15,11 +15,11 @@ from extras import pontuacao
 
 
 FASE_ADOLECENTE_TERMINADA = False
-DEBUG = 1
+DEBUG = 0
 VERDE = '\033[32m'
 ORIGINAL= '\033[0;0m'
 
-def fase_adolecente(vida, felicidade_atual):
+def fase_adolecente(vida, felicidade_atual): # pylint: disable=redefined-outer-name
     ''' Definicao da fase de adolecente '''
     atividades = int(input('''1) Artes
 2) Medicina
@@ -117,7 +117,7 @@ def fase_adolecente(vida, felicidade_atual):
     dados_player['chance_amigo'] = chances_amizade
 
     # pylint: disable=invalid-name
-    FASE_ADOLECENTE_TERMINADA = True
+    FASE_ADOLECENTE_TERMINADA = True # pylint: disable=redefined-outer-name
     dados_player['fase_adolecente_terminada'] = FASE_ADOLECENTE_TERMINADA
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json:
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
