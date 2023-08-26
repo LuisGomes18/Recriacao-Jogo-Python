@@ -15,7 +15,7 @@ from extras import pontuacao
 
 
 FASE_ADOLECENTE_TERMINADA = False
-DEBUG = 0
+DEBUG = 1
 VERDE = '\033[32m'
 ORIGINAL= '\033[0;0m'
 
@@ -87,7 +87,7 @@ def fase_adolecente(dados_player, felicidade_atual, vida): # pylint: disable=red
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     chances_amizade = []
     chance_amigo = randint(0, 100)
@@ -131,6 +131,7 @@ if DEBUG == 1:
         dados_player = loads(conteudo_json)
     felicidade_atual = dados_player['felicidade']
     vida = dados_player['vida']
+    dinheiro = dados_player['dinheiro']
     vida, felicidade_atual = fase_adolecente(dados_player, felicidade_atual, vida)
 elif DEBUG == 0:
     pass

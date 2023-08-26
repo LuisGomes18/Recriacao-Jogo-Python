@@ -17,7 +17,7 @@ with open("Data/Dados.json", 'r', encoding='utf-8') as dados: # type: ignore
 vida = dados_player["vida"]
 felicidade_atual = dados_player["felicidade"]
 
-def pontuacao(felicidade_atual, vida):# pylint: disable=redefined-outer-name
+def pontuacao(felicidade_atual, vida, dinheiro):# pylint: disable=redefined-outer-name
     '''
     Mostra a pontuação atual do jogador.
 
@@ -28,8 +28,9 @@ def pontuacao(felicidade_atual, vida):# pylint: disable=redefined-outer-name
     Esta função imprime a pontuação atual do jogador, incluindo a felicidade e a vida.
     Utiliza cores para destacar as informações na saída.
     '''
-    print(AMARELO + f'\nFelicidade: {felicidade_atual}')
-    print(f'Vida: {vida}\n' + ORIGINAL)
+    print(f'\n{AMARELO}Felicidade: {felicidade_atual}')
+    print(f'Vida: {vida}')
+    print(f'Dinheiro: {dinheiro} {ORIGINAL}\n')
 
 
 def artes(dados_player, felicidade_atual): # pylint: disable=redefined-outer-name
@@ -76,7 +77,7 @@ def artes(dados_player, felicidade_atual): # pylint: disable=redefined-outer-nam
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     comida = randint(0, 6)
     fumar = randint(0 , 4)
@@ -84,6 +85,11 @@ def artes(dados_player, felicidade_atual): # pylint: disable=redefined-outer-nam
     dados_player['comida_adulto'] = comida
     dados_player['fumar_adulto'] = fumar
     dados_player['ginasio_adulto'] = ginasio
+
+    print(f'''\nComida: {comida}
+Fumar: {fumar}
+Ginásio: {ginasio}\n
+''')
 
     ajuda_2 = str(input('Fazer apresentação de peça de arte(S/N)\n-> '))
     chance_apresentacao = randint(0, 100)
@@ -104,7 +110,7 @@ def artes(dados_player, felicidade_atual): # pylint: disable=redefined-outer-nam
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     felicidade_atual += int(comida / 3)
     felicidade_atual -= int(fumar / 3)
@@ -156,7 +162,7 @@ def medicina(dados_player, felicidade_atual): # pylint: disable=redefined-outer-
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     comida = randint(0, 6)
     fumar = randint(0 , 4)
@@ -164,6 +170,11 @@ def medicina(dados_player, felicidade_atual): # pylint: disable=redefined-outer-
     dados_player['comida_adulto'] = comida
     dados_player['fumar_adulto'] = fumar
     dados_player['ginasio_adulto'] = ginasio
+
+    print(f'''\nComida: {comida}
+Fumar: {fumar}
+Ginásio: {ginasio}\n
+''')
 
     ajuda_2 = str(input('Quer fazer uma operação: (S/N)\n-> '))
     chance_operacao = randint(0, 100)
@@ -184,7 +195,7 @@ def medicina(dados_player, felicidade_atual): # pylint: disable=redefined-outer-
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     felicidade_atual += int(comida / 3)
     felicidade_atual -= int(fumar / 3)
@@ -236,7 +247,7 @@ def musica(dados_player, felicidade_atual): # pylint: disable=redefined-outer-na
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     comida = randint(0, 6)
     fumar = randint(0 , 4)
@@ -244,6 +255,11 @@ def musica(dados_player, felicidade_atual): # pylint: disable=redefined-outer-na
     dados_player['comida_adulto'] = comida
     dados_player['fumar_adulto'] = fumar
     dados_player['ginasio_adulto'] = ginasio
+
+    print(f'''\nComida: {comida}
+Fumar: {fumar}
+Ginásio: {ginasio}\n
+''')
 
     ajuda_2 = str(input('Sua colega pediu sua ajuda para decorar a letra da musica \n-> '))
     chance_operacao = randint(0, 100)
@@ -264,7 +280,7 @@ def musica(dados_player, felicidade_atual): # pylint: disable=redefined-outer-na
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     felicidade_atual += int(comida / 3)
     felicidade_atual -= int(fumar / 3)
@@ -316,7 +332,7 @@ def desporto(dados_player, felicidade_atual): # pylint: disable=redefined-outer-
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     comida = randint(0, 6)
     fumar = randint(0 , 4)
@@ -324,6 +340,11 @@ def desporto(dados_player, felicidade_atual): # pylint: disable=redefined-outer-
     dados_player['comida_adulto'] = comida
     dados_player['fumar_adulto'] = fumar
     dados_player['ginasio_adulto'] = ginasio
+
+    print(f'''\nComida: {comida}
+Fumar: {fumar}
+Ginásio: {ginasio}\n
+''')
 
     ajuda_2 = str(input('Um colega pediu-te ajuda para aprender um novo desporto(S/N)\n-> '))
     chance_apresentacao = randint(0, 100)
@@ -344,7 +365,7 @@ def desporto(dados_player, felicidade_atual): # pylint: disable=redefined-outer-
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     felicidade_atual += int(comida / 3)
     felicidade_atual -= int(fumar / 3)
@@ -354,7 +375,8 @@ def desporto(dados_player, felicidade_atual): # pylint: disable=redefined-outer-
 
 def escritorio(dados_player, felicidade_atual): # pylint: disable=redefined-outer-name
     """
-    Realiza uma série de interações relacionadas a eventos desportivos e atualiza as informações do jogador.
+    Realiza uma série de interações relacionadas a 
+    eventos desportivos e atualiza as informações do jogador.
 
     Parâmetros:
     - dados_player (dict): Um dicionário contendo os dados do jogador.
@@ -395,7 +417,7 @@ def escritorio(dados_player, felicidade_atual): # pylint: disable=redefined-oute
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     comida = randint(0, 6)
     fumar = randint(0 , 4)
@@ -403,6 +425,11 @@ def escritorio(dados_player, felicidade_atual): # pylint: disable=redefined-oute
     dados_player['comida_adulto'] = comida
     dados_player['fumar_adulto'] = fumar
     dados_player['ginasio_adulto'] = ginasio
+
+    print(f'''\nComida: {comida}
+Fumar: {fumar}
+Ginásio: {ginasio}\n
+''')
 
     ajuda_2 = str(input('Vai haver uma reunião pretende ir(S/N)\n-> '))
     chance_apresentacao = randint(0, 100)
@@ -423,7 +450,7 @@ def escritorio(dados_player, felicidade_atual): # pylint: disable=redefined-oute
 
     with open("Data/Dados.json", 'w', encoding='utf-8') as arquivo_json: # type: ignore
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
-    pontuacao(felicidade_atual, vida)
+    pontuacao(felicidade_atual, vida, dinheiro)
 
     felicidade_atual += int(comida / 3)
     felicidade_atual -= int(fumar / 3)
