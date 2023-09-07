@@ -456,3 +456,146 @@ Ginásio: {ginasio}\n
     felicidade_atual -= int(fumar / 3)
     dinheiro -= int(fumar / 2)
     felicidade_atual += int(ginasio / 3)
+
+
+#! FAZER RESTO
+def resto_fase_adulto_homem(dados,vida, dinheiro, felicidade_atual): # pylint: disable=redefined-outer-name
+    """
+    Definição da fase adulta homem
+    """
+    flores = int(input('''
+1 ) Flores pequenas (100 $)
+2) Flores Grandes (300 $)
+-> '''))
+    dinheiro = dados['dinheiro']
+    if flores == 1 and dinheiro >= 100:
+        print('Voçe comprou as flores pequenas')
+        dinheiro -= 100
+    elif flores == 1 and dinheiro < 100:
+        print('Voçe não tem dinheiro suficiente')
+        dinheiro -= 100
+    elif flores == 2 and dinheiro >= 300:
+        print('Voçe comprou as flores grandes')
+        dinheiro -= 300
+    elif flores == 2 and dinheiro < 300:
+        print('Voçe não tem dinheiro suficiente')
+        dinheiro -= 300
+    else:
+        print('Valor invalido')
+        sys.exit(1)
+
+    pontuacao(felicidade_atual, vida, dinheiro)
+
+    carro = int(input('''
+1) Carro bom (1200 $)
+2) Carro mais ou menos (600 $)
+3) Carro mau (400 $)
+-> '''))
+    if carro == 1 and dinheiro >= 1200:
+        print('Voçe comprou o carro bom')
+        dinheiro -= 1200
+    elif carro == 1 and dinheiro < 1200:
+        print('Voçe não tem dinheiro suficiente')
+        print('Voce foi de autocarro')
+    elif carro == 2 and dinheiro >= 600:
+        print('Voçe comprou o carro mais ou menos')
+        dinheiro -= 600
+    elif carro == 2 and dinheiro < 600:
+        print('Voçe não tem dinheiro suficiente')
+        print('Voce foi de autocarro')
+    elif carro == 3 and dinheiro >= 400:
+        print('Voçe comprou o carro mau')
+        dinheiro -= 400
+    elif carro == 3 and dinheiro < 400:
+        print('Voçe não tem dinheiro suficiente')
+        print('Voce foi de autocarro')
+        dinheiro -= 10
+    else:
+        print('Valor invalido')
+        sys.exit(1)
+
+    pontuacao(felicidade_atual, vida, dinheiro)
+
+    namorar = input('''
+1) tentar com a  primeira rapariga
+2) tentar com a segunda rapariga
+3) tentar com a terceira rapariga
+-> ''')
+
+    tentativa = 0
+    chance_namorar = randint(0, 100)
+    if namorar == 1 and chance_namorar < 40:
+        print('Voce namorou com a primeira rapariga')
+        felicidade_atual += 5
+
+    elif namorar == 1 and chance_namorar > 41:
+        print('Voce não namorou com a primeira rapariga')
+        felicidade_atual -= 5
+        tentativa = 2
+
+    elif namorar == 2 and chance_namorar < 40:
+        print('Voce namorou com a segunda rapariga')
+        felicidade_atual += 5
+
+    elif namorar == 2 and chance_namorar > 41:
+        print('Voce não namorou com a segunda rapariga')
+        felicidade_atual -= 5
+        tentativa = 3
+
+    elif namorar == 3 and chance_namorar < 40:
+        print('Voce namorou com a terceira rapariga')
+        felicidade_atual += 5
+
+    elif namorar == 3 and chance_namorar > 41:
+        print('Voce não namorou com a terceira rapariga')
+        felicidade_atual -= 5
+
+    else:
+        print('Valor invalido')
+        sys.exit(1)
+
+#? tentativa 2 -> 2
+#? tentiva 3 -> 3
+
+    if tentativa == 0:
+        pass
+    elif tentativa == 2:
+        chance_namorar = randint(0, 100)
+        namorar = input('''
+2) tentar com a segunda rapariga
+3) tentar com a terceira rapariga
+-> ''')
+        if namorar == 2 and chance_namorar < 40:
+            print('Voce namorou com a segunda rapariga')
+            felicidade_atual += 5
+            tentativa = 0
+        elif namorar == 2 and chance_namorar > 41:
+            print('Voce não namorou com a segunda rapariga')
+            felicidade_atual -= 5
+            tentativa = 3
+        elif namorar == 3 and chance_namorar < 40:
+            print('Voce namorou com a terceira rapariga')
+            felicidade_atual += 5
+            tentativa = 0
+        elif namorar == 3 and chance_namorar > 41:
+            print('Voce não namorou com a terceira rapariga')
+            felicidade_atual -= 5
+        else:
+            print('Valor invalido')
+            sys.exit(1)
+    elif tentativa == 3:
+        chance_namorar = randint(0, 100)
+        namorar = input('''
+3) tentar com a terceira rapariga
+-> ''')
+        if namorar == 3 and chance_namorar < 40:
+            print('Voce namorou com a terceira rapariga')
+            felicidade_atual += 5
+            tentativa = 0
+        elif namorar == 3 and chance_namorar > 41:
+            print('Voce não namorou com a terceira rapariga')
+            felicidade_atual -= 5
+            tentativa = 4
+        else:
+            print('Valor invalido')
+            sys.exit(1)

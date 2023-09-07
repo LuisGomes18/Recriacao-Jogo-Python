@@ -48,9 +48,9 @@ def fase_adolecente(dados_player, felicidade_atual, vida): # pylint: disable=red
         dump(dados_player, arquivo_json, ensure_ascii=False, indent=4)
 
     if atividades == 1 and artes == 9:
-        print(f'{VERDE}Artes: {artes}{ORIGINAL}')
+        print(f'{VERDE}\nArtes: {artes}{ORIGINAL}')
     elif artes != 9:
-        print(f'Artes: {artes}')
+        print(f'\nArtes: {artes}')
     else:
         print('Valor incorreto')
 
@@ -108,10 +108,10 @@ def fase_adolecente(dados_player, felicidade_atual, vida): # pylint: disable=red
 
     chance_amigo_3 = randint(0, 100)
     if chance_amigo_3 < 50:
-        print('Você fez um novo amigo')
+        print('Você fez um novo amigo\n')
         felicidade_atual += 2
     else:
-        print('Ele não quis ser teu amigo')
+        print('Ele não quis ser teu amigo\n')
     chances_amizade.append(chance_amigo_3)
 
     dados_player['chance_amigo'] = chances_amizade
