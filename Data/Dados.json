@@ -1,25 +1,5 @@
 {
     "vida": 12,
     "felicidade": 8,
-    "dinheiro": 0,
-    "vida_inicial": 12,
-    "felicidade_inicial": 8,
-    "sexo": "ND",
-    "biberoes_apanhados": 0,
-    "fase_bebe_terminada": false,
-    "lampada": 0,
-    "pintura": 0,
-    "bebes": 0,
-    "fase_crianca_terminada": false,
-    "atividade_escolhida": 0,
-    "artes":0,
-    "medicina": 0,
-    "musica": 0,
-    "desporto": 0,
-    "fumar": 0,
-    "chance_amigo": [],
-    "fase_adolecente_terminada": false,
-    "comida_adulto": 0,
-    "fumar_adulto": 0,
-    "ginasio_adulto": 0
+    "dinheiro": 0
 }

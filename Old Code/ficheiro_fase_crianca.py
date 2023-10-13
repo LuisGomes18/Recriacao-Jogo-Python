@@ -4,7 +4,7 @@ JSON: Módulo utilizado para lidar com a serialização e desserialização de o
 com informações do jogo e dump para salvar as informações do Python em JSON num ficheiro.
 
 Random: Módulo utilizado para gerar números pseudoaleatórios.
- Ele fornece a função randint para gerar inteiros aleatórios dentro de um intervalo específico.
+Ele fornece a função randint para gerar inteiros aleatórios dentro de um intervalo específico.
 
 Extras: Um módulo personalizado que contém funções, uma delas é pontuacao.
 '''
