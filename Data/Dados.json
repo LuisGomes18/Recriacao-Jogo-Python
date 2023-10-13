@@ -1,5 +1,8 @@
 {
     "vida": 12,
     "felicidade": 8,
-    "dinheiro": 0
+    "dinheiro": 0,
+    "lampada": 0,
+    "pintura": 0,
+    "bebes": 0
 }

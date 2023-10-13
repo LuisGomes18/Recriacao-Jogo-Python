@@ -15,7 +15,7 @@ def carregar_dados():
 
 def guardar_dados(dados):
     with open('Data/Dados.json', 'w', encoding='utf-8') as dados_player:
-        dump(dados_player, dados, ensure_ascii=False, indent=4)
+        dump(dados, dados_player, ensure_ascii=False, indent=4)
 
 def pontuacao(dados):
     felicidade = dados['felicidade']
