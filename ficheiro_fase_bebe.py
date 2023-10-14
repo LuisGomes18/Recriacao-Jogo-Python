@@ -49,7 +49,7 @@ M - Masculino)
     dados['biberoes'] = biberoes
     print(f'Voce pegou {biberoes} biberoes')
 
-    felicidade = int(biberoes / 3)
+    felicidade = int(biberoes // 2) #* TMP
     dados['felicidade'] = felicidade
     guardar_dados(dados)
 
@@ -63,11 +63,13 @@ M - Masculino)
         felicidade -= 1
         print('Voçe não foi no baloiço')
     else:
-    print('OPCAO INVALIDA')
+        print('Valor Invalido')
 
     dados['felicidade'] = felicidade
     dados['fase_bebe_terminada'] = True
     guardar_dados(dados)
+
+    pontuacao(dados)
 
 if DEBUG == 1:
     fase_bebe(dados)
