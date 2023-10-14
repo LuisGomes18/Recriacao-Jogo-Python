@@ -55,6 +55,19 @@ M - Masculino)
 
     pontuacao(dados)
 
+    opcao_2 = str(input('Quer ir no baloiço (s/n)\n-> '))
+    if opcao_2.lower() == "s" or opcao_2.lower() == "y":
+        felicidade += 1
+        print('Voce foi no baloico')
+    elif opcao_2.lower() == "n":
+        felicidade -= 1
+        print('Voçe não foi no baloiço')
+    else:
+    print('OPCAO INVALIDA')
+
+    dados['felicidade'] = felicidade
+    dados['fase_bebe_terminada'] = True
+    guardar_dados(dados)
 
 if DEBUG == 1:
     fase_bebe(dados)
