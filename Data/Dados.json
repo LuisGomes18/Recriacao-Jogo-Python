@@ -15,5 +15,6 @@
     "artes": 0,
     "medicina": 0,
     "musica": 0,
-    "desporto": 0
+    "desporto": 0,
+    "chance_amigos": []
 }

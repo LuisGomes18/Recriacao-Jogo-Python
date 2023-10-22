@@ -95,10 +95,40 @@ def fase_adolecente(dados):
     chances_amizade = []
     chance_amigo = randint(0, 100)
     match chance_amigo:
-    case x if x < 50:
-        print('Você faz um novo amigo')
-    case _:
-        print('Você não fez um novo amigo')
+        case x if x < 50:
+            print('Você faz um novo amigo')
+            felicidade += 2
+        case _:
+            print('Você não fez um novo amigo')
+    chances_amizade.append(chance_amigo)
+
+    chance_amigo_2 = randint(0, 100)
+    match chance_amigo_2:
+        case x if x < 50:
+            print('Você faz um novo amigo')
+            felicidade += 2
+        case _:
+            print('Você não fez um novo amigo')
+    chances_amizade.append(chance_amigo_2)
+
+    chance_amigo_3 = randint(0, 100)
+    match chance_amigo_3:
+        case x if x < 50:
+            print('Você faz um novo amigo')
+            felicidade += 2
+        case _:
+            print('Você não fez um novo amigo')
+    chances_amizade.append(chance_amigo_3)
+
+    dados['chance_amigos'] = chances_amizade
+
+    guardar_dados(dados)
+    pontuacao(dados)
+    print('\n')
+
+    dados['fase_adolecente_terminada'] = True
+
+    guardar_dados(dados)
 
 match DEBUG:
     case 1:
