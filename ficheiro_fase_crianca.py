@@ -30,18 +30,21 @@ def fase_crianca(dados):
     dados['pintura'] = pintura
     dados['bebes'] = bebes
 
-    if lampada == 9:
-        print('\033[32m' + f'\n\nLampadas: {lampada}' + '\033[0m')
-    else:
-        print(f'\n\nLampadas: {lampada}')
-    if pintura == 3:
-        print('\033[32m' + f'Pintura: {pintura}' + '\033[0m')
-    else:
-        print(f'Pintura: {pintura}')
-    if bebes == 3:
-        print('\033[32m' + f'Bebes: {bebes}' + '\033[0m')
-    else:
-        print(f'Bebes: {bebes}')
+    match lampada:
+        case 9:
+            print('\033[32m' + f'\n\nLampadas: {lampada}' + '\033[0m')
+        case _:
+            print(f'\n\nLampadas: {lampada}')
+    match pintura:
+        case 3:
+            print('\033[32m' + f'Pintura: {pintura}' + '\033[0m')
+        case _:
+            print(f'Pintura: {pintura}')
+    match bebes:
+        case 3:
+            print('\033[32m' + f'Bebes: {bebes}' + '\033[0m')
+        case _:
+            print(f'Bebes: {bebes}')
 
     guardar_dados(dados)
     pontuacao(dados)
@@ -52,9 +55,11 @@ def fase_crianca(dados):
     guardar_dados(dados)
 
 
-if DEBUG == 1:
-    fase_crianca(dados)
-elif DEBUG == 0:
-    pass
-else:
-    print('VALOR INVALIDO')
+match DEBUG:
+    case 1:
+        fase_crianca(dados)
+    case 0:
+        pass
+    case _:
+        print('Valor Invalido')
+        exit(1)
