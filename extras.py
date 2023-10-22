@@ -4,6 +4,7 @@ Json: Para manipular os ficheiros .json
 from json import loads
 from json import dump
 
+
 def carregar_dados():
     '''
     Carrega os dados do ficheiro
