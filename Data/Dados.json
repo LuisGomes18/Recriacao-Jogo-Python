@@ -2,12 +2,18 @@
     "vida": 12,
     "felicidade": 8,
     "dinheiro": 0,
-    " ": null,
+    "_": null,
     "sexo": " ",
     "biberoes": 0,
     "fase_bebe_terminada": false,
-    "_": null,
+    "__": null,
     "lampada": 0,
     "pintura": 0,
-    "bebes": 0
+    "bebes": 0,
+    "___": null,
+    "atividade": 0,
+    "artes": 0,
+    "medicina": 0,
+    "musica": 0,
+    "desporto": 0
 }
