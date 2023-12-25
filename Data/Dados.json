@@ -2,6 +2,7 @@
     "vida": 12,
     "felicidade": 8,
     "dinheiro": 0,
+    "morto": false,
     "_": null,
     "sexo": " ",
     "biberoes": 0,
@@ -16,5 +17,12 @@
     "medicina": 0,
     "musica": 0,
     "desporto": 0,
-    "chance_amigos": []
+    "chance_amigos": [],
+    "fase_adolecente_terminada": false,
+    "____": null,
+    "moedas": 0,
+    "comida": 0,
+    "obeso": false,
+    "fumar": 0,
+    "exercicio": 0
 }

@@ -10,7 +10,7 @@ from extras import guardar_dados
 from extras import pontuacao
 
 
-DEBUG = 1
+DEBUG = 0
 dados = carregar_dados()
 
 def fase_crianca(dados):
