@@ -2,17 +2,14 @@ from random import randint
 
 from extras import carregar_dados
 from extras import guardar_dados
+from extras import pontuacao
 
 
 DEBUG = 0
 dados = carregar_dados()
-# dinheiro - felicidade
-# comida + felicidade (+7 obeso)
-# fumar +felicidade (7 die)
-# exercicio + saude  (vida)
 
 
-def fase_adulto(dados):
+def fase_adulto_parte_1(dados):
     felicidade = dados["felicidade"]
     vida = dados["vida"]
 
@@ -44,15 +41,16 @@ def fase_adulto(dados):
     dados["exercicio"] = exercicio
     dados["vida"] = vida
 
+    pontuacao(dados)
 
     dados["felicidade"] = felicidade
-    dados["fase_adulto_terminada"] = True
+    dados["fase_adulto_terminada_parte_1"] = True
     guardar_dados(dados)
 
 
 match DEBUG:
     case 1:
-        fase_adulto(dados)
+        fase_adulto_parte_1(dados)
     case 0:
         pass
     case _:

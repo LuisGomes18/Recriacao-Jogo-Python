@@ -20,9 +20,19 @@
     "chance_amigos": [],
     "fase_adolecente_terminada": false,
     "____": null,
-    "moedas": 0,
     "comida": 0,
     "obeso": false,
     "fumar": 0,
-    "exercicio": 0
+    "exercicio": 0,
+    "fase_adulto_terminada_parte_1": false,
+    "_____": null,
+    "flores": {
+        "flores_grandes": false,
+        "flores_pequenas": false
+    },
+    "carros": {
+        "carros_modernos": false,
+        "carros_mais_ou_menos": false,
+        "carros_antigos": false
+    }
 }
