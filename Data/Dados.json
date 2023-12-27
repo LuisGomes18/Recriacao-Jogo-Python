@@ -28,11 +28,13 @@
     "_____": null,
     "flores": {
         "flores_grandes": false,
-        "flores_pequenas": false
+        "flores_pequenas": true
     },
     "carros": {
         "carros_modernos": false,
         "carros_mais_ou_menos": false,
-        "carros_antigos": false
-    }
+        "carros_antigos": true
+    },
+    "namorada_1": false,
+    "namorada_2": false
 }
