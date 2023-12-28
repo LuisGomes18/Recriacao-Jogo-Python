@@ -1,7 +1,6 @@
 *.txt
 *.sh
 Apoio
-test
 __pycache__/
 .venv/
 .vscode/

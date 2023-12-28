@@ -1,40 +1,51 @@
 {
+  "DADOS_IMPORTANTES": {
     "vida": 12,
     "felicidade": 8,
     "dinheiro": 0,
-    "morto": false,
-    "_": null,
-    "sexo": " ",
+    "morto": false
+  },
+  "FASE_BEBE": {
+    "sexo": "0",
     "biberoes": 0,
-    "fase_bebe_terminada": false,
-    "__": null,
+    "fase_bebe_terminada": false
+  },
+  "FASE_CRIANCA": {
     "lampada": 0,
     "pintura": 0,
     "bebes": 0,
-    "___": null,
+    "fase_crianca_terminada": false
+  },
+  "FASE_ADOLECENTE": {
     "atividade": 0,
     "artes": 0,
     "medicina": 0,
     "musica": 0,
     "desporto": 0,
-    "chance_amigos": [],
-    "fase_adolecente_terminada": false,
-    "____": null,
+    "chance_amigos": [
+      0
+    ],
+    "fase_adolecente_terminada": false
+  },
+  "FASE_ADULTO_PARTE_1": {
     "comida": 0,
     "obeso": false,
     "fumar": 0,
     "exercicio": 0,
-    "fase_adulto_terminada_parte_1": false,
-    "_____": null,
+    "fase_adulto_terminada_parte_1": false
+  },
+  "FASE_ADULTO_PARTE_2": {
     "flores": {
-        "flores_grandes": false,
-        "flores_pequenas": true
+      "flores_grandes": false,
+      "flores_pequenas": false
     },
     "carros": {
-        "carros_modernos": false,
-        "carros_mais_ou_menos": false,
-        "carros_antigos": true
+      "carros_modernos": false,
+      "carros_mais_ou_menos": false,
+      "carros_antigos": false
     },
     "namorada_1": false,
-    "namorada_2": false
+    "namorada_2": false,
+    "fase_adulto_terminada_parte_2": false
+  }
 }
