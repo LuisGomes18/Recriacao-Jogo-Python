@@ -1,8 +1,3 @@
-"""
-Random: Para gerar numeros pseudoaleatorios
-Extras: Para carregar diferentes parte do codigo
-"""
-#! pylint: disable=redefined-outer-name
 from random import randint
 
 from extras import carregar_dados
@@ -10,17 +5,14 @@ from extras import guardar_dados
 from extras import pontuacao
 
 
-DEBUG = 0
+DEBUG = 1
 VERDE = "\033[32m"
 ORIGINAL = "\033[0;0m"
 dados = carregar_dados()
 
 
 def fase_adolecente(dados):
-    """
-    Fase Adolecente
-    """
-    felicidade = dados["felicidade"]
+    felicidade = dados["DADOS_IMPORTANTES"]["felicidade"]
     atividade_escolhida = int(
         input(
             """
@@ -43,7 +35,7 @@ def fase_adolecente(dados):
             )
         )
 
-    dados["atividade"] = atividade_escolhida
+    dados["FASE_ADOLECENTE"]["atividade"] = atividade_escolhida
     guardar_dados(dados)
 
     artes = randint(3, 9)
@@ -51,10 +43,10 @@ def fase_adolecente(dados):
     musica = randint(3, 9)
     desporto = randint(3, 9)
 
-    dados["artes"] = artes
-    dados["medicina"] = medicina
-    dados["musica"] = musica
-    dados["desporto"] = desporto
+    dados["FASE_ADOLECENTE"]["artes"] = artes
+    dados["FASE_ADOLECENTE"]["medicina"] = medicina
+    dados["FASE_ADOLECENTE"]["musica"] = musica
+    dados["FASE_ADOLECENTE"]["desporto"] = desporto
 
     guardar_dados(dados)
     pontuacao(dados)
@@ -63,29 +55,21 @@ def fase_adolecente(dados):
         print(f"{VERDE}\nArtes: {artes}{ORIGINAL}")
     elif artes != 9:
         print(f"\nArtes: {artes}")
-    else:
-        print("Valor incorreto")
 
     if atividade_escolhida == 2 and medicina == 9:
         print(f"{VERDE}Medicina: {medicina}{ORIGINAL}")
     elif medicina != 9:
         print(f"Medicina: {medicina}")
-    else:
-        print("Valor incorreto")
 
     if atividade_escolhida == 3 and musica == 9:
         print(f"{VERDE}Musica: {musica}{ORIGINAL}")
     elif musica != 9:
         print(f"Musica: {musica}")
-    else:
-        print("Valor incorreto")
 
     if atividade_escolhida == 4 and desporto == 9:
         print(f"{VERDE}Desporto: {desporto}{ORIGINAL}")
     elif desporto != 9:
         print(f"Desporto: {desporto}")
-    else:
-        print("Valor incorreto")
 
     match atividade_escolhida:
         case 1:
@@ -97,7 +81,7 @@ def fase_adolecente(dados):
         case 4:
             felicidade += int(desporto / 2)
 
-    dados["felicidade"] = felicidade
+    dados["DADOS_IMPORTANTES"]["felicidade"] = felicidade
     guardar_dados(dados)
     pontuacao(dados)
 
@@ -129,13 +113,13 @@ def fase_adolecente(dados):
             print("Você não fez um novo amigo")
     chances_amizade.append(chance_amigo_3)
 
-    dados["chance_amigos"] = chances_amizade
+    dados["FASE_ADOLECENTE"]["chance_amigos"] = chances_amizade
 
     guardar_dados(dados)
     pontuacao(dados)
     print("\n")
 
-    dados["fase_adolecente_terminada"] = True
+    dados["FASE_ADOLECENTE"]["fase_adolecente_terminada"] = True
 
     guardar_dados(dados)
 

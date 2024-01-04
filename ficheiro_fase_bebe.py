@@ -5,6 +5,7 @@ from random import randint
 from extras import carregar_dados
 from extras import guardar_dados
 from extras import pontuacao
+from extras import apagar_terminal
 
 
 DEBUG = 0
@@ -12,9 +13,8 @@ dados = carregar_dados()
 
 
 def fase_bebe(dados):
-    """Fase Bebe"""
-    system("clear")
-    felicidade = dados["felicidade"]
+    apagar_terminal()
+    felicidade = dados["DADOS_IMPORTANTES"]["felicidade"]
 
     sexo = str(
         input(
@@ -24,44 +24,53 @@ M - Masculino)
 -> """
         )
     )
-    sexo.lower()
-    match sexo:
+    while sexo.lower() not in ["f", "m"]:
+        sexo = str(
+            input(
+                """\n\nInsira o sexo  da personagem:
+(F - Femenino
+M - Masculino)
+-> """
+            )
+        )
+    match sexo.lower():
         case "f":
             print("\nIt's a girl!")
         case "m":
             print("\nIt's a boy!")
         case _:
-            print("Valor Invalido")
+            print("\nValor Invalido")
             exit(1)
-    dados["sexo"] = sexo
+    dados["FASE_BEBE"]["sexo"] = sexo
 
     guardar_dados(dados)
 
-    opcao_1 = str(input("Quer ir com seus pais (s/n)\n-> "))
-    opcao_1.lower()
-    match opcao_1:
+    opcao_1 = str(input("\nQuer ir com seus pais (s/n)\n-> "))
+    while opcao_1.lower() not in ["s", "n"]:
+        opcao_1 = str(input("\nQuer ir com seus pais (s/n)\n-> "))
+    match opcao_1.lower():
         case "s":
             felicidade += 2
-            print("Voçe foi com seus pais")
+            print("\nVoçe foi com seus pais")
         case "n":
             felicidade -= 2
-            print("Voçe nao foi com seus pais")
+            print("\nVoçe nao foi com seus pais")
         case _:
-            print("Valor Invalido")
+            print("\nValor Invalido")
             exit(1)
 
-    dados["felicidade"] = felicidade
+    dados["DADOS_IMPORTANTES"]["felicidade"] = felicidade
     guardar_dados(dados)
 
     pontuacao(dados)
 
     print(
-        "\nAgora é a parte em que o jogador deveria pegar os biberões, mas como não há" \
+        "\nAgora é a parte em que o jogador deveria pegar os biberões, mas como não há"
         "interface gráfica, será feito de forma aleatória. :)\n"
     )
     sleep(2)
 
-    match opcao_1:
+    match opcao_1.lower():
         case "n":
             biberoes = randint(4, 9)
         case "s":
@@ -70,18 +79,19 @@ M - Masculino)
             print("Valor Invalido")
             exit(1)
 
-    dados["biberoes"] = biberoes
-    print(f"Voce pegou {biberoes} biberoes")
+    dados["FASE_BEBE"]["biberoes"] = biberoes
+    print(f"\nVoce pegou {biberoes} biberoes")
 
     felicidade = int(biberoes // 2)  # * TMP
-    dados["felicidade"] = felicidade
+    dados["DADOS_IMPORTANTES"]["felicidade"] = felicidade
     guardar_dados(dados)
 
     pontuacao(dados)
 
-    opcao_2 = str(input("Quer ir no baloiço (s/n)\n-> "))
-    opcao_2.lower()
-    match opcao_2:
+    opcao_2 = str(input("\nQuer ir no baloiço (s/n)\n-> "))
+    while opcao_2.lower() not in ["s", "n"]:
+        opcao_2 = str(input("\nQuer ir no baloiço (s/n)\n-> "))
+    match opcao_2.lower():
         case "s":
             felicidade += 1
             print("Voçe foi no baloiço")
@@ -92,8 +102,8 @@ M - Masculino)
             print("Valor Invalido")
             exit(1)
 
-    dados["felicidade"] = felicidade
-    dados["fase_bebe_terminada"] = True
+    dados["DADOS_IMPORTANTES"]["felicidade"] = felicidade
+    dados["FASE_BEBE"]["fase_bebe_terminada"] = True
     guardar_dados(dados)
 
     pontuacao(dados)

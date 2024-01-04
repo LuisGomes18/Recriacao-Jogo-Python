@@ -10,8 +10,8 @@ dados = carregar_dados()
 
 
 def fase_adulto_parte_1(dados):
-    felicidade = dados["felicidade"]
-    vida = dados["vida"]
+    felicidade = dados["DADOS_IMPORTANTES"]["felicidade"]
+    vida = dados["DADOS_IMPORTANTES"]["vida"]
 
     moedas = randint(25, 31)
     felicidade -= moedas / 2
