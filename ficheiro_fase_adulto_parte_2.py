@@ -20,11 +20,7 @@ def fase_adulto_parte_2(dados):
         input("Escolha as flores (Grande mas caras-> 1, Pequenas mas bratas -> 2): ")
     )
     while escolha_flores not in [1, 2]:
-        escolha_flores = int(
-            input(
-                "Escolha as flores (Grande mas caras-> 1, Pequenas mas bratas -> 2): "
-            )
-        )
+        escolha_flores = int(input("Escolha as flores (Grande mas caras-> 1, Pequenas mas bratas -> 2): "))
 
     match escolha_flores:
         case 1:
@@ -41,17 +37,9 @@ def fase_adulto_parte_2(dados):
     pontuacao(dados)
     guardar_dados(dados)
 
-    escolha_carros = int(
-        input(
-            "Escolha o carro (Moderno mas caro -> 1, Mais ou menos -> 2, Chaço mas barato -> 3): "
-        )
-    )
+    escolha_carros = int(input("Escolha o carro (Moderno mas caro -> 1, Mais ou menos -> 2, Chaço mas barato -> 3): "))
     while escolha_carros not in [1, 2, 3]:
-        escolha_carros = int(
-            input(
-                "Escolha o carro (Moderno mas caro -> 1, Mais ou menos -> 2, Chaço mas barato -> 3): "
-            )
-        )
+        escolha_carros = int(input("Escolha o carro (Moderno mas caro -> 1, Mais ou menos -> 2, Chaço mas barato -> 3): "))
 
     match escolha_carros:
         case 1:
