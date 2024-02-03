@@ -5,7 +5,7 @@ from extras import guardar_dados
 
 def language_choice(dados):
     """
-    This function prompts the user to choose a language and loads the corresponding language file. 
+    This function prompts the user to choose a language and loads the corresponding language file.
     It handles exceptions related to JSON decoding and file loading, and returns the chosen language.
     """
     try:
