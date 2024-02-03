@@ -3,7 +3,9 @@
     "vida": 12,
     "felicidade": 8,
     "dinheiro": 0,
-    "morto": false
+    "morto": false,
+    "fase": "FASE_CRIANCA",
+    "lang": " "
   },
   "FASE_BEBE": {
     "sexo": "0",

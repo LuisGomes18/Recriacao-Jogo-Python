@@ -1,4 +1,3 @@
-from os import system
 from time import sleep
 from random import randint
 
@@ -6,28 +5,23 @@ from extras import carregar_dados
 from extras import guardar_dados
 from extras import pontuacao
 from extras import apagar_terminal
+from language import language_choice
 
 
 DEBUG = 0
+current_language = " "
 dados = carregar_dados()
 
+language = language_choice() # type: ignore
+current_language = dados['lang']
 
 def fase_bebe(dados):
     apagar_terminal()
     felicidade = dados["DADOS_IMPORTANTES"]["felicidade"]
 
-    sexo = str(
-        input(
-            """\n\nInsira o sexo  da personagem:
-(F - Femenino
-M - Masculino)
--> """
-        )
-    )
+    sexo = str(input("tfd"))
     while sexo.lower() not in ["f", "m"]:
-        sexo = str(
-            input(
-                """\n\nInsira o sexo  da personagem:
+        sexo = str(input("""\n\nInsira o sexo  da personagem:
 (F - Femenino
 M - Masculino)
 -> """

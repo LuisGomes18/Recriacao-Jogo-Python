@@ -1,9 +1,9 @@
 {
-    "Fase_1": [
+    "Phase_1": [
         {
-            "frase_1": "Frase 1",
-            "frase_2": "Frase 2",
-            "frase_3": "Frase 3"
+            "phrase_1": "Frase 1",
+            "phrase_2": "Frase 2",
+            "phrase_3": "Frase 3"
         }
     ]
 }
