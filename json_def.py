@@ -18,8 +18,8 @@ def carregar_dados_player():
         os.makedirs('data', exist_ok=True)
         with open('data/player.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
-            if not isinstance(data, dict):
-                raise TypeError('O conteúdo do arquivo "player.json" deve ser um dicionário.')
+            if not isinstance(data, dict) or data is None:
+                raise TypeError('O conteúdo do arquivo "player.json" deve ser um dicionário não nulo.')
             return data
     except FileNotFoundError as exc:
         raise FileNotFoundError('O arquivo "player.json" não foi encontrado.') from exc
@@ -55,4 +55,3 @@ def guardar_dados_player(dados: dict):
         raise json.JSONDecodeError(f'Houve um erro ao decodificar JSON: {json_error}') from json_error
     except Exception as error:
         raise Exception(f'Ocorreu um erro ao salvar os dados do jogador: {error}') from error
-
