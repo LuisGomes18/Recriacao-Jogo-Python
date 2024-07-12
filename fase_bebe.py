@@ -15,6 +15,7 @@ def fase_bebe():
 
     ''')
     dados = carregar_dados_player()
+    felicidade = dados['recursos'][0]['felicidade']
 
     concluida = dados['fase_crianca'][0]['concluida']
     if concluida:
@@ -27,10 +28,13 @@ def fase_bebe():
         pais = str(input('Quer ir com os pais (s/n)? ')).strip().lower()
 
     if pais == 's':
+        felicidade += 2
         print('Foste com os pais')
     elif pais == 'n':
+        felicidade -= 2
         print('Foste sem os pais')
 
+    dados['recursos'][0]['felicidade'] = felicidade
     dados['fase_crianca'][0]['pais'] = pais
     guardar_dados_player(dados)
     pontuacao()
@@ -40,10 +44,13 @@ def fase_bebe():
     else:
         biberao = randint(4, 9)
 
+    felicidade += int(biberao //2)
+
     print(f'\nApanhas-te {biberao} biberoes\n')
     dados['fase_crianca'][0]['biberoes'] = biberao
+    dados['recursos'][0]['felicidade'] = felicidade
 
-    guardar_dados_player(dados)
+    guardar_dados_player(dados) #! TMP
     pontuacao()
 
     escorrega = str(input('Quer ir ao escorrega (s/n)? ')).strip().lower()
@@ -51,10 +58,13 @@ def fase_bebe():
         escorrega = str(input('Quer ir ao escorrega (s/n)? ')).strip().lower()
 
     if escorrega == 's':
+        felicidade += 2
         print('Foste no escorrega')
     else:
+        felicidade -= 2
         print('Não foste no escorrega')
 
+    dados['recursos'][0]['felicidade'] = felicidade
     dados['fase_crianca'][0]['escorrega'] = escorrega
     guardar_dados_player(dados)
     pontuacao()
