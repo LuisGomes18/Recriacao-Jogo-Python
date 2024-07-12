@@ -1,13 +1,13 @@
 {
     "recursos": [
         {
-            "vida": 0,
+            "vida": 12,
+            "felicidade": 8,
             "dinheiro": 0,
-            "felicidade": 0,
             "sexo": null
         }
     ],
-    "fase_crianca": [
+    "fase_bebe": [
         {
             "concluida": false,
             "pais": null,
