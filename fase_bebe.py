@@ -17,7 +17,7 @@ def fase_bebe():
     dados = carregar_dados_player()
     felicidade = dados['recursos'][0]['felicidade']
 
-    concluida = dados['fase_crianca'][0]['concluida']
+    concluida = dados['fase_bebe'][0]['concluida']
     if concluida:
         raise Exception('Config da fase criança precisa ser restaurado às definições de fábrica')
 
@@ -35,7 +35,7 @@ def fase_bebe():
         print('Foste sem os pais')
 
     dados['recursos'][0]['felicidade'] = felicidade
-    dados['fase_crianca'][0]['pais'] = pais
+    dados['fase_bebe'][0]['pais'] = pais
     guardar_dados_player(dados)
     pontuacao()
 
@@ -47,7 +47,7 @@ def fase_bebe():
     felicidade += int(biberao //2)
 
     print(f'\nApanhas-te {biberao} biberoes\n')
-    dados['fase_crianca'][0]['biberoes'] = biberao
+    dados['fase_bebe'][0]['biberoes'] = biberao
     dados['recursos'][0]['felicidade'] = felicidade
 
     guardar_dados_player(dados) #! TMP
@@ -65,9 +65,9 @@ def fase_bebe():
         print('Não foste no escorrega')
 
     dados['recursos'][0]['felicidade'] = felicidade
-    dados['fase_crianca'][0]['escorrega'] = escorrega
+    dados['fase_bebe'][0]['escorrega'] = escorrega
     guardar_dados_player(dados)
     pontuacao()
 
-    dados['fase_crianca'][0]['concluida'] = True
+    dados['fase_bebe'][0]['concluida'] = True
     guardar_dados_player(dados)
