@@ -3,7 +3,8 @@
         {
             "vida": 0,
             "dinheiro": 0,
-            "felicidade": 0
+            "felicidade": 0,
+            "sexo": null
         }
     ],
     "fase_crianca": [
