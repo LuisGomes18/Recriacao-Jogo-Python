@@ -48,6 +48,13 @@ def fase_crianca():
     felicidade += int(inteligencia // 2) #! TMP
     felicidade += int(inteligencia // 2) #! TMP
 
+    dados['fase_crianca'][0]['inteligencia'] = inteligencia
+    dados['fase_crianca'][0]['amizade'] = amizade
+    dados['fase_crianca'][0]['criatividade'] = criatividade
     dados['recursos'][0]['felicidade'] = felicidade
+
     guardar_dados_player(dados)
     pontuacao()
+
+    dados['fase_crianca'][0]['concluida'] = True
+    guardar_dados_player(dados)
