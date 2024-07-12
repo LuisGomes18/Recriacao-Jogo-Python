@@ -14,5 +14,13 @@
             "biberoes": 0,
             "escorrega": null
         }
+    ],
+    "fase_crianca": [
+        {
+            "concluida": false,
+            "inteligencia": 0,
+            "amizade": 0,
+            "criatividade": 0
+        }
     ]
 }
