@@ -11,7 +11,6 @@ def limpar_terminal():
         os.system('clear')
 
 
-
 def welcome():
     limpar_terminal()
     print("""
@@ -63,10 +62,10 @@ def escolha_sexo():
 
     # Se o sexo for feminino, imprime uma mensagem de confirma o
     if sexo == "f":
-        print('E uma menina')
+        print('E uma menina\n')
     # Se o sexo for masculino, imprime uma mensagem de confirma o
     else:
-        print('E um menino')
+        print('E um menino\n')
 
     # Adiciona o sexo escolhido aos dados do jogador
     dados["recursos"][0]["sexo"] = sexo
