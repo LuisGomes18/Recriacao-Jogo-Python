@@ -16,7 +16,7 @@ def carregar_dados_player():
     '''
     try:
         os.makedirs('data', exist_ok=True)
-        with open('data/player.json', 'r', encoding='utf-8') as f:
+        with open('../data/player.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
             if not isinstance(data, dict) or data is None:
                 raise TypeError('O conteúdo do arquivo "player.json" deve ser um dicionário não nulo.')
@@ -47,7 +47,7 @@ def guardar_dados_player(dados: dict):
 
     try:
         os.makedirs('data', exist_ok=True)
-        with open('data/player.json', 'w', encoding='utf-8') as f:
+        with open('../data/player.json', 'w', encoding='utf-8') as f:
             json.dump(dados, f, ensure_ascii=False, indent=4)
     except FileNotFoundError as fnf_error:
         raise FileNotFoundError(f'O arquivo "player.json" não pôde ser encontrado: {fnf_error}') from fnf_error
