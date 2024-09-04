@@ -22,5 +22,19 @@
             "amizade": 0,
             "criatividade": 0
         }
+    ],
+    "fase_adolecente": [
+        {
+            "concluida": false,
+            "escolha": null,
+            "artes": 0,
+            "medicina": 0,
+            "futebol": 0,
+            "estudos": 0,
+            "musica": 0,
+            "amigo_1": null,
+            "amigo_2": null,
+            "amigo_3": null
+        }
     ]
 }
