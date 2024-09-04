@@ -15,7 +15,7 @@ def carregar_dados_player():
         Exception: Se ocorrer qualquer outro erro durante o processo de carregamento.
     '''
     try:
-        with open('../data/player.json', 'r', encoding='utf-8') as f:
+        with open('./data/player.json', 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
         raise FileNotFoundError('O arquivo "player.json" não foi encontrado.')
@@ -43,7 +43,7 @@ def guardar_dados_player(dados: dict):
 
     try:
         os.makedirs('data', exist_ok=True)
-        with open('../data/player.json', 'wb') as f:
-            json.dump(dados, f, ensure_ascii=False, separators=(',', ':'))
+        with open('./data/player.json', 'wb') as f:
+            json.dump(dados, f, ensure_ascii=False)
     except FileNotFoundError as fnf_error:
         raise FileNotFoundError(f'O arquivo "player.json" não pôde ser encontrado: {fnf_error}') from fnf_error
