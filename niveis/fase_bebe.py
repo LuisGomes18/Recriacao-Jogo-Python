@@ -1,6 +1,13 @@
+import sys
+import os
 from random import randint
-from extra import escolha_sexo, pontuacao
-from json_def import carregar_dados_player, guardar_dados_player
+
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from extras.json_def import carregar_dados_player, guardar_dados_player
+from extras.extra_def import escolha_sexo, pontuacao
+
 
 
 def fase_bebe():
@@ -49,8 +56,7 @@ def fase_bebe():
     print(f'\nApanhas-te {biberao} biberoes\n')
     dados['fase_bebe'][0]['biberoes'] = biberao
     dados['recursos'][0]['felicidade'] = felicidade
-
-    guardar_dados_player(dados) #! TMP
+    guardar_dados_player(dados)
     pontuacao()
 
     escorrega = str(input('Quer ir ao escorrega (s/n)? ')).strip().lower()

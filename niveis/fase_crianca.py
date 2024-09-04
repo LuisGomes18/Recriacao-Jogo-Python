@@ -1,6 +1,12 @@
+import sys
+import os
 from random import randint
-from extra import pontuacao
-from json_def import carregar_dados_player, guardar_dados_player
+
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from extras.json_def import carregar_dados_player, guardar_dados_player
+from extras.extra_def import pontuacao
 
 
 def fase_crianca():
@@ -44,9 +50,10 @@ def fase_crianca():
     else:
         print(f'Criatividade: {criatividade}')
 
-    felicidade += int(inteligencia // 2) #! TMP
-    felicidade += int(inteligencia // 2) #! TMP
-    felicidade += int(inteligencia // 2) #! TMP
+    #NOTE: Modificar felicidade
+    felicidade += int(inteligencia // 2)
+    felicidade += int(amizade // 2)
+    felicidade += int(criatividade // 2)
 
     dados['fase_crianca'][0]['inteligencia'] = inteligencia
     dados['fase_crianca'][0]['amizade'] = amizade
